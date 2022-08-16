@@ -1,4 +1,4 @@
-const {isEven} = require('./lib');
+const {isEven, areaOfCube, lateralSurface} = require('./lib');
 
 describe('test math functions', function () {
     test('test sum', () => {
@@ -10,9 +10,7 @@ describe('test math functions', function () {
 const {areaOfCube} = require('./lib');
 const {lateralSurface} = require('./lib');
 
-describe('test math functions', function () {
     test('test sum', () => {
         expect(areaOfCube(2)).toBe(2 ** 3);
         expect(lateralSurface(5)).toBe(6 * 5 * 5);
     });
-});
