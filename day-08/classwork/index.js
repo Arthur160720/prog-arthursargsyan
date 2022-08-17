@@ -1,6 +1,6 @@
 const {ask, close} = require('../../utils/read-from-terminal');
-const {problemLogging, par, parg} = require('../../utils/index');
-const {isEven, isInteger, isOdd, isTwoDigit, isThreeDigit} = require('../lib');
+const {problemLogging, par, parg, readNumber} = require('../../utils/index');
+const {isEven, isInteger, isOdd, isTwoDigit, isThreeDigit, isNatural} = require('../lib');
 
 async function processInputs() {
     await codeGoesHere();
@@ -18,7 +18,10 @@ const problems = {
     problem4: '4. Տրված է a դրական ամբողջ թիվը: Արտածել YES, եթե այն\n' +
         '   ա) երկնիշ եւ զույգ թիվ է,\n' +
         '   բ) եռանիշ եւ կենտ թիվ է:\n' +
-        '   Հակառակ դեպքում արտածել NO:'
+        '   Հակառակ դեպքում արտածել NO:',
+    problem10: '10. Տրված են x,y ամբողջ թվերը, որոնք շախմատի տախտակի\n' +
+        '    մի վանդակի կոորդինատներն են (այսինքն այդ թվերն ընկած են [1,8] հատվածում): Հաշվի առնելով, որ (1,1) վանդակը սեւ է,\n' +
+        '    արտածել white, եթե (x,y) վանդակը սպիտակ է: Հակառակ դեպքում արտածել black:'
 }
 
 async function codeGoesHere() {
@@ -29,12 +32,16 @@ async function codeGoesHere() {
     let number = +await ask('which problem you want to execute type from 1 to 11');
 
     switch (number) {
-        case 1:
+        case 2:
             await problem2();
             break;
 
         case 4:
             await problem4();
+            break;
+
+        case 10:
+            await problem10();
             break;
 
         default:
@@ -57,9 +64,14 @@ processInputs();
 
 async function problem2() {
     async function showResult() {
-        let number1 = +await ask('enter first integer number ');
-        let number2 = +await ask('enter second integer number ');
-        let number3 = +await ask('enter third integer number ');
+
+        function checkNumberIsInteger(number) {
+            return !isInteger(number);
+        }
+
+        let number1 = await readNumber("enter first integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+        let number2 = await readNumber("enter second integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+        let number3 = await readNumber("enter third integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
         let result = "NO";
 
         // while (number1 !== Math.trunc(number1)) {
@@ -73,21 +85,6 @@ async function problem2() {
         // while (number3 !== Math.trunc(number3)) {
         //    number3 = +await ask('enter third integer number ');
         // }
-
-        while (!isInteger(number1)) {
-            console.log(`${number1} is not a integer, input integer`);
-            number1 = +await ask('enter first integer number ');
-        }
-
-        while (!isInteger(number2)) {
-            console.log(`${number2} is not a integer, input integer`);
-            number2 = +await ask('enter second integer number ');
-        }
-
-        while (!isInteger(number3)) {
-            console.log(`${number3} is not a integer, input integer`);
-            number3 = +await ask('enter third integer number ');
-        }
 
         if (number1 === 0 || number2 === 0 || number3 === 0) {
             result = "a) YES";
@@ -126,30 +123,58 @@ async function problem2() {
    */
 
 async function problem4() {
-    async function showResult() {
-        let number = +await ask('enter integer and positive number ');
-        let result = "NO";
+        async function showResult() {
+            let number = +await ask('enter integer and positive number ');
+            let result = "NO";
 
-        while (!isInteger(number)) {
-            console.log(`${number} is not a integer, input integer`);
-            number = +await ask('enter integer and positive number ');
+            while (!isInteger(number)) {
+                console.log(`${number} is not a integer, input integer`);
+                number = +await ask('enter integer and positive number ');
+            }
+
+            while (number < 0) {
+                console.log(`${par(`${number} is not a positive, input positive`)}`);
+                number = +await ask('enter integer and positive number ');
+            }
+
+            if (isTwoDigit(number) && isEven(number)) {
+                result = "a) YES";
+            }
+
+            if (isThreeDigit(number) && isOdd(number)) {
+                result = "b) YES";
+            }
+            console.log(result);
         }
 
-        while (number < 0) {
-            console.log(`${par(`${number} is not a positive, input positive`)}`);
-            number = +await ask('enter integer and positive number ');
-        }
-
-        if (isTwoDigit(number) && isEven(number)) {
-            result = "a) YES";
-        }
-
-        if (isThreeDigit(number) && isOdd(number)) {
-            result = "b) YES";
-        }
-        console.log(result);
+        const requirement = `4. enter integer and positive number`;
+        await problemLogging(requirement, showResult);
     }
 
-    const requirement = `4. enter integer and positive number`;
-    await problemLogging(requirement, showResult);
+
+/*10. Տրված են x,y ամբողջ թվերը, որոնք շախմատի տախտակի
+    մի վանդակի կոորդինատներն են (այսինքն այդ թվերն ընկած են [1,8] հատվածում): Հաշվի առնելով, որ (1,1) վանդակը սեւ է,
+    արտածել white, եթե (x,y) վանդակը սպիտակ է: Հակառակ դեպքում արտածել black:
+    */
+
+async function problem10() {
+        async function showResult() {
+
+            function checkNumberIsInteger(number) {
+                return !(isInteger(number) && number > 0 && number < 9);
+            }
+
+            let number1 = await readNumber('enter first integer number', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+            let number2 = await readNumber('enter second integer number', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+            let result = "White";
+
+            if (isEven(number1) && isEven(number2) || isOdd(number1) && isOdd(number2)) {
+                result = "Black";
+            }
+
+            console.log(result);
+        }
+
+        const requirement = `10. enter two integer numbers`;
+        await problemLogging(requirement, showResult);
 }
