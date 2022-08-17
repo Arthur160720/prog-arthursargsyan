@@ -1,6 +1,8 @@
 const {ask, close} = require('../../utils/read-from-terminal');
-const {problemLogging, par, parg} = require('../../utils/index');
-const {isEven, isInteger, isThreeDigit, isPalindrome, isNatural, isValidTriangle} = require('../lib');
+const {problemLogging, par, parg, readNumber} = require('../../utils/index');
+const {isEven, isInteger, isThreeDigit, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue,
+    doubleValues, changeSign, squareNumber
+} = require('../lib');
 
 async function processInputs() {
     await codeGoesHere();
@@ -22,7 +24,14 @@ const problems = {
         '   ա) հավասարակողմ է,\n' +
         '   բ) հավասարասրուն է,\n' +
         '   գ) ուղղանկյուն է:\n' +
-        '   Հակառակ դեպքում արտածել NO:'
+        '   Հակառակ դեպքում արտածել NO:',
+    problem12: '12. Տրված են երեք ամբողջ թվեր: Արտածել ա) դրանցից փոքրագույնի արժեքը,\n' +
+        '    բ) դրանցից մեծագույնի արժեքը\n' +
+        '    գ) մեծությամբ երկրորդ թվի արժեքը:',
+    problem16: 'Տրված են a,b,c իրական թվերը: Եթե դրանք դասավորված են աճման կամ նվազման կարգով, դրանց արժեքները կրկնապատկել,\n' +
+        '    հակառակ դեպքում յուրաքանչյուրի նշանը փոխել: Արտածել ստացված թվերը:',
+    problem22: '22. Ներածել n թիվը: Արտածել 1, եթե դրա միավորների թվանշա- նը 3-ով մեծ է հարյուրավորների թվանշանից, հակառակ դեպքում՝ այդ\n' +
+        '    թվի քառակուսին:'
 }
 
 async function codeGoesHere() {
@@ -30,7 +39,7 @@ async function codeGoesHere() {
         console.log(parg(problems[key]));
     }
 
-    let number = +await ask('which problem you want to execute type from 1 to 11');
+    let number = +await ask('which problem you want to execute type from 1 to 22 - ');
 
     switch (number) {
         case 5:
@@ -43,6 +52,18 @@ async function codeGoesHere() {
 
         case 9:
             await problem9();
+            break;
+
+        case 12:
+            await problem12();
+            break;
+
+        case 16:
+            await problem16();
+            break;
+
+        case 22:
+            await problem22();
             break;
 
         default:
@@ -191,5 +212,125 @@ async function problem9() {
     }
 
     const requirement = `9. enter three natural numbers`;
+    await problemLogging(requirement, showResult);
+}
+
+
+/*12. Տրված են երեք ամբողջ թվեր: Արտածել ա) դրանցից փոքրագույնի արժեքը,
+    բ) դրանցից մեծագույնի արժեքը
+    գ) մեծությամբ երկրորդ թվի արժեքը:
+    */
+
+async function problem12() {
+    async function showResult() {
+
+        function checkIsItIntegerNumber(number) {
+            return !isInteger(number);
+        }
+
+        let number1 = await readNumber('enter first integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
+        let number2 = await readNumber('enter second integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
+        let number3 = await readNumber('enter third integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
+        let result = "";
+        let result1 = "";
+        let result2 = "";
+
+        // if (number1 < number2 && number1 < number3) {
+        //     result = `a) minimum is ${number1}`;
+        // }
+        //
+        // if (number2 < number1 && number2 < number3) {
+        //     result = `a) minimum is ${number2}`;
+        // }
+        //
+        // if (number3 < number1 && number3 < number2) {
+        //     result = `a) minimum is ${number3}`;
+        // }
+        //
+        // if (number1 > number2 && number1 > number3) {
+        //     result1 = `b) maximum is ${number1}`;
+        // }
+        //
+        // if (number2 > number1 && number2 > number3) {
+        //     result1 = `b) maximum is ${number2}`;
+        // }
+        //
+        // if (number3 > number1 && number3 > number2) {
+        //     result1 = `b) maximum is ${number3}`;
+        // }
+
+        result = `a) minimum is ${findMinimumValue(number1, number2, number3)}`;
+        result1 = `b) maximum is ${findMaximumValue(number1, number2, number3)}`;
+
+        if (number1 > number2 && number1 < number3 || number1 < number2 && number1 > number3) {
+            result2 = `c) value of second biggest number is ${number1}`;
+        }
+
+        if (number2 > number1 && number2 < number3 || number2 < number1 && number2 > number3) {
+            result2 = `c) value of second biggest number is ${number2}`;
+        }
+
+        if (number3 > number1 && number3 < number2 || number3 < number1 && number3 > number2) {
+            result2 = `c) value of second biggest number is ${number3}`;
+        }
+
+        console.log(` ${result}\n ${result1}\n ${result2}`);
+    }
+
+    const requirement = `12. enter three integer numbers`;
+    await problemLogging(requirement, showResult);
+}
+
+
+/*16. Տրված են a,b,c իրական թվերը: Եթե դրանք դասավորված են աճման կամ նվազման կարգով, դրանց արժեքները կրկնապատկել,
+    հակառակ դեպքում յուրաքանչյուրի նշանը փոխել: Արտածել ստացված թվերը:
+    */
+
+async function problem16() {
+    async function showResult() {
+
+        let number1 = +await ask('enter first number ');
+        let number2 = +await ask('enter second number ');
+        let number3 = +await ask('enter third number ');
+        let result = "";
+
+        if (number1 < number2 && number2 < number3 || number1 > number2 && number2 > number3) {
+            result = ` ${number1} double value is ${doubleValues(number1)}\n ${number2} double value is ${doubleValues(number2)}\n ${number3} double value is ${doubleValues(number3)}`;
+        }
+        else result = ` ${number1} change sign is ${changeSign(number1)}\n ${number2} change sign is ${changeSign(number2)}\n ${number3} change sign is ${changeSign(number3)}`;
+
+        console.log(result);
+    }
+
+    const requirement = `16. enter three numbers`;
+    await problemLogging(requirement, showResult);
+}
+
+
+/*22. Ներածել n թիվը: Արտածել 1, եթե դրա միավորների թվանշա- նը 3-ով մեծ է հարյուրավորների թվանշանից, հակառակ դեպքում՝ այդ
+    թվի քառակուսին:
+    */
+
+async function problem22() {
+    async function showResult() {
+
+        function checkIsItThreeDigitNumber(number) {
+            return !isThreeDigit(number);
+        }
+
+        let number = await readNumber('enter three digit number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItThreeDigitNumber);
+        let result = squareNumber(number);
+
+        let digitOne = number % 10;
+        let digitThree = Math.trunc(number / 100);
+
+        if (digitOne > digitThree + 2) {
+            result = 1;
+        }
+
+        console.log(result);
+    }
+
+    const requirement = `22. enter three digit number`;
     await problemLogging(requirement, showResult);
 }

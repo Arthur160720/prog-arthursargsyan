@@ -34,6 +34,26 @@ function isValidTriangle(n1, n2, n3) {
     return n1 + n2 + n3 === 180;
 }
 
+function findMaximumValue (...numbers) {
+    return Math.max(...numbers);
+}
+
+function findMinimumValue (...numbers) {
+    return Math.min(...numbers);
+}
+
+function doubleValues(number) {
+    return number * 2;
+}
+
+function changeSign(number) {
+    return number * -1;
+}
+
+function squareNumber(number) {
+    return number ** 2;
+}
+
 module.exports = {
     isEven,
     isInteger,
@@ -42,6 +62,11 @@ module.exports = {
     isThreeDigit,
     isPalindrome,
     isNatural,
-    isValidTriangle
+    isValidTriangle,
+    findMaximumValue,
+    findMinimumValue,
+    doubleValues,
+    changeSign,
+    squareNumber
 }
 
