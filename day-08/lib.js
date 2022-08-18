@@ -34,12 +34,12 @@ function isValidTriangle(n1, n2, n3) {
     return n1 + n2 + n3 === 180;
 }
 
-function findMaximumValue (...numbers) {
-    return Math.max(...numbers);
+function findMaximumValue (number1, number2, number3) {
+    return Math.max(number1, number2, number3);
 }
 
-function findMinimumValue (...numbers) {
-    return Math.min(...numbers);
+function findMinimumValue (number1, number2, number3) {
+    return Math.min(number1, number2, number3);
 }
 
 function doubleValues(number) {
