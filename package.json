@@ -1,0 +1,22 @@
+{
+  "name": "prog-arthursargsyan",
+  "version": "1.0.0",
+  "description": "programming course problems solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arthur160720/prog-arthursargsyan.git"
+  },
+  "author": "Artur Sargsyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arthur160720/prog-arthursargsyan/issues"
+  },
+  "homepage": "https://github.com/Arthur160720/prog-arthursargsyan#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
