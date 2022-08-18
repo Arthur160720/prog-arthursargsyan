@@ -1,3 +1,4 @@
+const {ask} = require("./read-from-terminal");
 const Reset = "\x1b[0m"
 const Bright = "\x1b[1m"
 const Dim = "\x1b[2m"
@@ -38,8 +39,23 @@ async function problemLogging(problemRequirements, callback) {
     console.log('\n');
 }
 
+async function readNumber(question, errorMessage, callback) {
+    let number = +await ask(question);
+    if (typeof callback !== 'function') {
+        throw Error('callback is not a function');
+    }
+
+    while (callback(number)) {
+        console.log(errorMessage);
+        number = +await ask(question);
+    }
+
+    return number;
+}
+
 module.exports = {
     problemLogging,
     par,
-    parg
+    parg,
+    readNumber
 }
