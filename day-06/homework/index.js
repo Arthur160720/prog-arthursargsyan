@@ -1,6 +1,8 @@
 const {ask, close} = require('../../utils/read-from-terminal');
 const {problemLogging, par, parg} = require('../../utils/index');
 const {isEven} = require('./lib');
+const {isInteger, isOdd, isNatural} = require("../../day-08/lib");
+const {readNumber} = require("../../utils");
 
 async function processInputs() {
     await codeGoesHere();
@@ -26,7 +28,7 @@ async function codeGoesHere() {
         console.log(parg(problems[key]));
     }
 
-    let number = +await ask('which problem you want to execute type from 1 to 11');
+    let number = +await ask('which problem you want to execute type from 1 to 11 - ');
 
     switch (number) {
         case 1:
@@ -80,39 +82,52 @@ async function codeGoesHere() {
 
 processInputs();
 
+
 /**
  1. Insert a number and print YES if number is even otherwise NO.
  */
-function problem1() {
 
-
-    function logResult(number) {
-        return `number ${par(number)} is ${isEven(number) ? 'YES' : 'NO'}`;
-    }
-
-    function showResult() {
-        console.log(`${logResult(2463)}`);
-        console.log(`${logResult(6)}`);
-        console.log(`${logResult(45689)}`);
-    }
-
-    const requirement = `Insert a number and print YES if number is even otherwise NO.`;
-    problemLogging(requirement, showResult);
-}
-
-/**
- 2. insert two integers and print their sum
- */
-async function problem2() {
+async function problem1() {
     async function showResult() {
-        let number1 = +await ask('enter first number ');
-        let number2 = +await ask('enter second number ');
-        console.log(`sum of numbers ${number1} and ${number2} = ${number1 + number2}`);
+
+        function checkNumberIsInteger(number) {
+            return !(isInteger(number));
+        }
+
+        let number = await readNumber('enter integer number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+
+        if (isEven(number)) {
+            console.log("YES");
+        } else console.log("NO");
     }
 
-    const requirement = `2. insert two integers and print their sum`;
+    const requirement = `1. Insert a number and print YES if number is even otherwise NO.`;
     await problemLogging(requirement, showResult);
 }
+
+
+/**
+ 2. insert two integers and print their sum.
+ */
+
+async function problem2() {
+    async function showResult() {
+
+        function checkNumberIsInteger(number) {
+            return !(isInteger(number));
+        }
+
+        let number1 = await readNumber('enter first integer number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+        let number2 = await readNumber('enter second integer number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+        let result = number1 + number2;
+
+        console.log(result);
+    }
+
+    const requirement = `insert two integers and print their sum.`;
+    await problemLogging(requirement, showResult);
+}
+
 
 /**
  3. Ներածել երկու բնական թիվ եւ արտածել դրանց միջին թվաբանականն ու միջին երկրաչափականը:
@@ -120,33 +135,22 @@ async function problem2() {
 
 async function problem3() {
     async function showResult() {
-        let number1 = +await ask('enter first natural number ');
-        let number2 = +await ask('enter second natural number ');
 
-        let isNatural = (number1 * 10) % 10 === 0 && (number2 * 10) % 10 === 0 && number1 >= 0 && number2 >= 0;
-
-
-        if (isNatural) {
-            console.log(`arithmetic mean of numbers ${number1} and ${number2} = ${(number1 + number2) / 2}`);
-            console.log(`geometric mean of numbers ${number1} and ${number2} = ${Math.pow(number1 * number2, 1/2)}`);
-        } else {
-            isNatural = false
-            while (!isNatural) {
-                number1 = +await ask('enter first NATURAL number ');
-                number2 = +await ask('enter second NATURAL number ');
-                if (((number1 * 10) % 10 === 0) && (number2 * 10) % 10 === 0 && number1 >= 0 && number2 >= 0){
-                    isNatural = true
-                }
-            }
-
-            console.log(`arithmetic mean of numbers ${number1} and ${number2} = ${(number1 + number2) / 2}`);
-            console.log(`geometric mean of numbers ${number1} and ${number2} = ${Math.pow(number1 * number2, 1/2)}`);
+        function checkNumberIsNatural(number) {
+            return !isNatural(number);
         }
+
+        let number1 = await readNumber('enter first natural number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsNatural);
+        let number2 = await readNumber('enter second natural number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsNatural);
+
+            console.log(`arithmetic mean of numbers ${number1} and ${number2} = ${(number1 + number2) / 2}`);
+            console.log(`geometric mean of numbers ${number1} and ${number2} = ${Math.pow(number1 * number2, 1 / 2)}`);
     }
 
     const requirement = `3. Ներածել երկու բնական թիվ եւ արտածել դրանց միջին թվաբանականն ու միջին երկրաչափականը:`;
     await problemLogging(requirement, showResult);
 }
+
 
 /**
  4. Տրված է խորանարդի կողմը: Ստանալ խորանարդի ծավալը եւ կողմնային մակերեւույթի մակերեսը:
