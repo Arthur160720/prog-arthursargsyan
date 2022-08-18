@@ -72,44 +72,31 @@ async function problem2() {
         let number1 = await readNumber("enter first integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
         let number2 = await readNumber("enter second integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
         let number3 = await readNumber("enter third integer number", `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
-        let result = "NO";
-
-        // while (number1 !== Math.trunc(number1)) {
-        //    number1 = +await ask('enter first integer number ');
-        // }
-        //
-        // while (number2 !== Math.trunc(number2)) {
-        //    number2 = +await ask('enter second integer number ');
-        // }
-        //
-        // while (number3 !== Math.trunc(number3)) {
-        //    number3 = +await ask('enter third integer number ');
-        // }
 
         if (number1 === 0 || number2 === 0 || number3 === 0) {
-            result = "a) YES";
-        }
+            console.log("a) YES");
+        } else console.log("a) NO");
 
-        if (number1 === 5 || number2 === 5 || number3 === 5) {
-            result = "b) YES";
-        }
+        if (number1 === 5 && number2 !== 5 && number3 !== 5 || number2 === 5 && number1 !== 5 && number3 !== 5 || number3 === 5 && number1 !== 5 && number2 !== 5) {
+            console.log("b) YES");
+        } else console.log("b) NO");
 
-        if (number1 !== number2 && number2 !== number3 && number1 !== number3) {
-            result = "c) YES";
-        }
+        if (number1 !== number2 && number2 !== number3) {
+            console.log("c) YES");
+        } else console.log("c) NO");
 
-        if (number1 === number2 || number2 === number3 || number1 === number3) {
-            result = "d) YES";
-        }
+        if (number1 === number2 && number3 !== number2 || number2 === number3 && number2 !== number1 || number1 === number3 && number3 !== number2) {
+            console.log("d) YES");
+        } else console.log("d) NO");
 
         if (number1 === number2 && number2 === number3) {
-            result = "e) YES";
-        }
+            console.log("e) YES");
+        } else console.log("e) NO");
 
         if (number1 < 0 || number2 < 0 || number3 < 0) {
-            result = "f) YES";
-        }
-        console.log(result);
+            console.log("f) YES");
+        } else console.log("f) NO");
+
     }
 
     const requirement = `2. enter three integer numbers`;
@@ -125,7 +112,6 @@ async function problem2() {
 async function problem4() {
         async function showResult() {
             let number = +await ask('enter integer and positive number ');
-            let result = "NO";
 
             while (!isInteger(number)) {
                 console.log(`${number} is not a integer, input integer`);
@@ -138,13 +124,13 @@ async function problem4() {
             }
 
             if (isTwoDigit(number) && isEven(number)) {
-                result = "a) YES";
-            }
+                console.log("a) YES");
+            } else console.log("a) NO");
 
             if (isThreeDigit(number) && isOdd(number)) {
-                result = "b) YES";
-            }
-            console.log(result);
+                console.log("b) YES");
+            } else console.log("b) NO");
+
         }
 
         const requirement = `4. enter integer and positive number`;
@@ -166,13 +152,11 @@ async function problem10() {
 
             let number1 = await readNumber('enter first integer number', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
             let number2 = await readNumber('enter second integer number', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
-            let result = "White";
 
             if (isEven(number1) && isEven(number2) || isOdd(number1) && isOdd(number2)) {
-                result = "Black";
-            }
+                console.log("Black");
+            } else console.log("White");
 
-            console.log(result);
         }
 
         const requirement = `10. enter two integer numbers`;

@@ -1,4 +1,4 @@
-const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, doubleValues, changeSign, squareNumber} = require('../lib');
+const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue, doubleValues, changeSign, squareNumber} = require('../lib');
 
 describe('test math functions', function () {
     test('test sum', () => {
@@ -23,27 +23,27 @@ describe('test math functions', function () {
     })
 
     test('find maximum value', ()=>{
-        expect(findMaximumValue(4, 5, 6, 5000));
-        expect(findMaximumValue(-5, 4, 7, -3000));
+        expect(findMaximumValue(4, 5, 6)).toBe(6);
+        expect(findMaximumValue(-5, 4, 7)).toBe(7);
     })
 
     test('find minimum value', ()=>{
-        expect(findMaximumValue(4, 5, 6, 5000));
-        expect(findMaximumValue(-5, 4, 7, -3000));
+        expect(findMinimumValue(4, 5, 6)).toBe(4);
+        expect(findMinimumValue(-5, 4, -3000)).toBe(-3000);
     })
 
     test('double values', ()=>{
-        expect(doubleValues(4));
-        expect(doubleValues(3));
+        expect(doubleValues(4)).toBe(8);
+        expect(doubleValues(3)).toBe(6);
     })
 
     test('change sign of number', ()=>{
-        expect(changeSign(4));
-        expect(changeSign(-3));
+        expect(changeSign(4)).toBe(-4);
+        expect(changeSign(-3)).toBe(3);
     })
 
     test('find square of the number', ()=>{
-        expect(squareNumber(3));
-        expect(squareNumber(9));
+        expect(squareNumber(3)).toBe(9);
+        expect(squareNumber(9)).toBe(81);
     })
 });

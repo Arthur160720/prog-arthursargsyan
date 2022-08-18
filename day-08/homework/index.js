@@ -85,7 +85,6 @@ processInputs();
 async function problem5() {
     async function showResult() {
         let number = +await ask('enter three digit number ');
-        let result = "NO";
 
         while (!isThreeDigit(number)) {
             number = +await ask(`${par('enter three digit number')}`);
@@ -96,18 +95,17 @@ async function problem5() {
         let digitThree = Math.trunc(number / 100);
 
         if (digitOne === digitTwo && digitTwo === digitThree) {
-            result = "a) YES";
-        }
+            console.log("a) YES");
+        }else console.log("a) NO");
 
         if (digitOne > digitTwo && digitTwo > digitThree) {
-            result = "b) YES";
-        }
+            console.log("b) YES");
+        }else console.log("b) NO");
 
         if (isPalindrome(number)) {
-            result = "c) YES";
-        }
+            console.log("c) YES");
+        }else console.log("c) NO");
 
-        console.log(result);
     }
 
     const requirement = `5. enter three digit number`;
@@ -126,7 +124,6 @@ async function problem6() {
     async function showResult() {
         let coordinateX = +await ask('enter x coordinate ');
         let coordinateY = +await ask('enter y coordinate ');
-        let result = "NO";
 
         while (coordinateX === 0) {
             coordinateX = +await ask(`${par('enter x coordinate')}`);
@@ -137,22 +134,21 @@ async function problem6() {
         }
 
         if (coordinateX < 0 && coordinateY > 0 || coordinateX < 0 && coordinateY < 0) {
-            result = "c) YES"
-        }
+            console.log("a) YES");
+        }else console.log("a) NO");
 
         if (coordinateX > 0 && coordinateY > 0 || coordinateX > 0 && coordinateY < 0) {
-            result = "d) YES"
-        }
+            console.log("b) YES");
+        }else console.log("b) NO");
 
         if (coordinateX < 0 && coordinateY > 0) {
-            result = "a) YES";
-        }
+            console.log("c) YES");
+        }else console.log("c) NO");
 
         if (coordinateX > 0 && coordinateY < 0) {
-            result = "b) YES";
-        }
+            console.log("d) YES");
+        }else console.log("d) NO");
 
-        console.log(result);
     }
 
     const requirement = `6. enter x and y coordinates`;
@@ -172,7 +168,6 @@ async function problem9() {
         let number1 = +await ask('enter first natural number ');
         let number2 = +await ask('enter second natural number ');
         let number3 = +await ask('enter third natural number ');
-        let result = "NO";
 
         while (!isNatural(number1)){
             console.log(`${par(`${number1} is not a natural number`)}`);
@@ -197,18 +192,17 @@ async function problem9() {
         }
 
         if (number1 === number2 && number2 === number3) {
-            result = "a) YES";
-        }
+            console.log("a) YES");
+        }else console.log("a) NO");
 
         if (number1 === number2 && number2 !== number3 || number1 === number3 && number3 !== number2 || number2 === number3 && number3 !== number1) {
-            result = "b) YES";
-        }
+            console.log("b) YES");
+        }else console.log("b) NO");
 
         if (number1 === 90 || number2 === 90 || number3 === 90) {
-            result = "c) YES";
-        }
+            console.log("c) YES");
+        }else console.log("c) NO");
 
-        console.log(result);
     }
 
     const requirement = `9. enter three natural numbers`;
@@ -231,50 +225,22 @@ async function problem12() {
         let number1 = await readNumber('enter first integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
         let number2 = await readNumber('enter second integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
         let number3 = await readNumber('enter third integer number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItIntegerNumber);
-        let result = "";
-        let result1 = "";
-        let result2 = "";
 
-        // if (number1 < number2 && number1 < number3) {
-        //     result = `a) minimum is ${number1}`;
-        // }
-        //
-        // if (number2 < number1 && number2 < number3) {
-        //     result = `a) minimum is ${number2}`;
-        // }
-        //
-        // if (number3 < number1 && number3 < number2) {
-        //     result = `a) minimum is ${number3}`;
-        // }
-        //
-        // if (number1 > number2 && number1 > number3) {
-        //     result1 = `b) maximum is ${number1}`;
-        // }
-        //
-        // if (number2 > number1 && number2 > number3) {
-        //     result1 = `b) maximum is ${number2}`;
-        // }
-        //
-        // if (number3 > number1 && number3 > number2) {
-        //     result1 = `b) maximum is ${number3}`;
-        // }
-
-        result = `a) minimum is ${findMinimumValue(number1, number2, number3)}`;
-        result1 = `b) maximum is ${findMaximumValue(number1, number2, number3)}`;
+        console.log(`a) minimum is ${findMinimumValue(number1, number2, number3)}`);
+        console.log(`b) maximum is ${findMaximumValue(number1, number2, number3)}`);
 
         if (number1 > number2 && number1 < number3 || number1 < number2 && number1 > number3) {
-            result2 = `c) value of second biggest number is ${number1}`;
+            console.log(`c) value of second biggest number is ${number1}`);
         }
 
         if (number2 > number1 && number2 < number3 || number2 < number1 && number2 > number3) {
-            result2 = `c) value of second biggest number is ${number2}`;
+            console.log(`c) value of second biggest number is ${number2}`);
         }
 
         if (number3 > number1 && number3 < number2 || number3 < number1 && number3 > number2) {
-            result2 = `c) value of second biggest number is ${number3}`;
+            console.log(`c) value of second biggest number is ${number3}`);
         }
 
-        console.log(` ${result}\n ${result1}\n ${result2}`);
     }
 
     const requirement = `12. enter three integer numbers`;
@@ -292,14 +258,12 @@ async function problem16() {
         let number1 = +await ask('enter first number ');
         let number2 = +await ask('enter second number ');
         let number3 = +await ask('enter third number ');
-        let result = "";
 
         if (number1 < number2 && number2 < number3 || number1 > number2 && number2 > number3) {
-            result = ` ${number1} double value is ${doubleValues(number1)}\n ${number2} double value is ${doubleValues(number2)}\n ${number3} double value is ${doubleValues(number3)}`;
+            console.log(` ${number1} double value is ${doubleValues(number1)}\n ${number2} double value is ${doubleValues(number2)}\n ${number3} double value is ${doubleValues(number3)}`);
         }
-        else result = ` ${number1} change sign is ${changeSign(number1)}\n ${number2} change sign is ${changeSign(number2)}\n ${number3} change sign is ${changeSign(number3)}`;
+        else console.log(` ${number1} change sign is ${changeSign(number1)}\n ${number2} change sign is ${changeSign(number2)}\n ${number3} change sign is ${changeSign(number3)}`);
 
-        console.log(result);
     }
 
     const requirement = `16. enter three numbers`;
@@ -319,16 +283,14 @@ async function problem22() {
         }
 
         let number = await readNumber('enter three digit number - ', `${par('entered number is not satisfy for requirement')}`, checkIsItThreeDigitNumber);
-        let result = squareNumber(number);
 
         let digitOne = number % 10;
         let digitThree = Math.trunc(number / 100);
 
-        if (digitOne > digitThree + 2) {
-            result = 1;
-        }
+        if (digitOne - digitThree === 3) {
+            console.log(1);
+        }else console.log(squareNumber(number));
 
-        console.log(result);
     }
 
     const requirement = `22. enter three digit number`;
