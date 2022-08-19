@@ -53,9 +53,56 @@ async function readNumber(question, errorMessage, callback) {
     return number;
 }
 
+class ProblemRegistry {
+    #problems;
+    #locale = 'en';
+    #executors = {};
+
+    constructor(problems, locale = 'en') {
+        this.#problems = problems;
+        this.#locale = locale;
+    }
+
+    set locale(locale) {
+        this.#locale = locale;
+    }
+
+    get local() {
+        return this.#locale;
+    }
+
+    showAllProblems() {
+        for (const key in this.#problems) {
+            console.log(parg(this.#problems[key][this.#locale]));
+        }
+    }
+
+    registerExecutor(executor) {
+        this.#executors[executor.name] = executor;
+    }
+
+    async execute(executorIndex) {
+        console.log(this.#problems[`problem${executorIndex}`][this.local]);
+        console.log('----------------------------------------------------------------------------');
+        await this.#executors[`problem${executorIndex}`]();
+        console.log('\n');
+    }
+
+    registerExecutors(...executors) {
+        executors.forEach(executor => {
+            this.#executors[executor.name] = executor;
+        });
+    }
+
+    getProblem(executerName) {
+        return this.#executors[executerName];
+    }
+}
+
 module.exports = {
     problemLogging,
     par,
     parg,
-    readNumber
+    readNumber,
+    ProblemRegistry
 }

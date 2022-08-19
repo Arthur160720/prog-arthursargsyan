@@ -79,4 +79,3 @@ module.exports = {
     areaOfCube,
     lateralSurface
 }
-
