@@ -1,7 +1,7 @@
 const {ask, close} = require('../utils/read-from-terminal');
 const problems = require('./problems.json');
 const {ProblemRegistry, readNumber} = require("../utils/index");
-const {isInteger, isEven, isOdd, isNatural} = require("../utils/lib");
+const {isInteger, isEven, isOdd, isNatural, isNanOrNot} = require("../utils/lib");
 const {par, problemLogging} = require("../utils");
 async function processInputs() {
     await codeGoesHere();
@@ -9,12 +9,11 @@ async function processInputs() {
 }
 let problemsRegistry = new ProblemRegistry(problems, 'am');
 problemsRegistry.registerExecutors(
-    problem1,
-);
+    problem1, problem2);
 async function codeGoesHere() {
     const showProblems = async () => problemsRegistry.showAllProblems();
     const executeProblem = async () => {
-        let number = +await ask('which problem you want to execute type the number of the problem ');
+        let number = +await ask('which problem you want to execute type the number of the problem - ');
         await problemsRegistry.execute(number);
     }
     await showProblems();
@@ -87,5 +86,30 @@ async function problem1() {
     }
 
     const requirement = `1. enter natural number`;
+    await problemLogging(requirement, showResult);
+}
+
+
+/* 2. Տեղերով փոխել տրված թվի առաջին եւ վերջին թվանշաննե- րը: Օրինակ` 8547-ից պետք է ստացվի 7548: */
+
+async function problem2() {
+    async function showResult() {
+
+        function checkNumberIsNaN(number) {
+            return isNanOrNot(number);
+        }
+
+        let number = await readNumber('enter number - ', `${par('entered number is not satisfy for requirement')}`, checkNumberIsNaN);
+        let changeNumber = "";
+
+            let lastDigit = number % 10;
+            let firstDigit = Math.trunc(number / 1000);
+            let secondAndThirdNumber = Math.trunc(Math.trunc(number % 1000) / 10);
+
+        let result = changeNumber + lastDigit + secondAndThirdNumber + firstDigit;
+
+        console.log(`swap first and last digits = ${result}`);
+    }
+    const requirement = `1. enter number`;
     await problemLogging(requirement, showResult);
 }

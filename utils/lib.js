@@ -2,6 +2,10 @@ function isEven(number) {
     return number % 2 === 0;
 }
 
+function isNanOrNot(number) {
+    return Number.isNaN(number);
+}
+
 function isInteger(number) {
     return Number.isInteger(number);
 }
@@ -77,5 +81,6 @@ module.exports = {
     changeSign,
     squareNumber,
     areaOfCube,
-    lateralSurface
+    lateralSurface,
+    isNanOrNot
 }
