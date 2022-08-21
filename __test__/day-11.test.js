@@ -1,4 +1,7 @@
-const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue, doubleValues, changeSign, squareNumber, isInteger, isOdd, isTwoDigit, isThreeDigit} = require('../utils/lib');
+const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue, doubleValues, changeSign, squareNumber, isInteger, isOdd, isTwoDigit, isThreeDigit,
+    sortedAscending,
+    sortedDescending
+} = require('../utils/lib');
 
 describe('test math functions', function () {
     test('test sum', () => {
@@ -66,5 +69,15 @@ describe('test math functions', function () {
     test('check if number is three digit', () => {
         expect(isThreeDigit(45)).toBe(false);
         expect(isThreeDigit(489)).toBe(true);
+    })
+
+    test('check if array sorted in ascending order or not', () => {
+        expect(sortedAscending([4, 5, 7, 9])).toBe(true);
+        expect(sortedAscending([9, 8, 9])).toBe(false);
+    })
+
+    test('check if array sorted in descending order or not', () => {
+        expect(sortedDescending([4, 5, 7, 9])).toBe(false);
+        expect(sortedDescending([9, 8, 7, 3])).toBe(true);
     })
 });

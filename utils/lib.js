@@ -1,3 +1,5 @@
+const {par} = require("./index");
+
 function isEven(number) {
     return number % 2 === 0;
 }
@@ -66,6 +68,24 @@ function lateralSurface(side) {
     return 6 * side * side;
 }
 
+function sortedDescending(array) {
+    let second_index;
+    for (let first_index = 0; first_index < array.length; first_index++) {
+        second_index = first_index - 1;
+        if (array[second_index] - array[first_index] < 0) return false;
+    }
+    return true;
+}
+
+function sortedAscending(array) {
+    let second_index;
+    for (let first_index = 0; first_index < array.length; first_index++) {
+        second_index = first_index + 1;
+        if (array[second_index] - array[first_index] < 0) return false;
+    }
+    return true;
+}
+
 module.exports = {
     isEven,
     isInteger,
@@ -82,5 +102,7 @@ module.exports = {
     squareNumber,
     areaOfCube,
     lateralSurface,
-    isNanOrNot
+    isNanOrNot,
+    sortedDescending,
+    sortedAscending
 }
