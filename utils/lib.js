@@ -24,6 +24,10 @@ function isThreeDigit(number) {
     return number > 99 && number < 1000;
 }
 
+function isFourDigit(number) {
+    return number > 999 && number < 10000;
+}
+
 function isPalindrome(number) {
     let digitOne = number % 10;
     let digitTwo = Math.trunc(number / 10) % 10;
@@ -86,12 +90,25 @@ function sortedAscending(array) {
     return true;
 }
 
+function factorial(n) {
+    let answer = 1;
+    if (n === 0 || n === 1) {
+        return answer;
+    } else {
+        for (let i = n; i >= 1; i--) {
+            answer = answer * i;
+        }
+        return answer;
+    }
+}
+
 module.exports = {
     isEven,
     isInteger,
     isOdd,
     isTwoDigit,
     isThreeDigit,
+    isFourDigit,
     isPalindrome,
     isNatural,
     isValidTriangle,
@@ -104,5 +121,6 @@ module.exports = {
     lateralSurface,
     isNanOrNot,
     sortedDescending,
-    sortedAscending
+    sortedAscending,
+    factorial
 }

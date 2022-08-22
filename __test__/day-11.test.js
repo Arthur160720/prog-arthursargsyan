@@ -1,6 +1,8 @@
 const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue, doubleValues, changeSign, squareNumber, isInteger, isOdd, isTwoDigit, isThreeDigit,
     sortedAscending,
-    sortedDescending
+    sortedDescending,
+    factorial,
+    isFourDigit
 } = require('../utils/lib');
 
 describe('test math functions', function () {
@@ -71,6 +73,11 @@ describe('test math functions', function () {
         expect(isThreeDigit(489)).toBe(true);
     })
 
+    test('check if number is four digit', () => {
+        expect(isFourDigit(159)).toBe(false);
+        expect(isFourDigit(4897)).toBe(true);
+    })
+
     test('check if array sorted in ascending order or not', () => {
         expect(sortedAscending([4, 5, 7, 9])).toBe(true);
         expect(sortedAscending([9, 8, 9])).toBe(false);
@@ -79,5 +86,10 @@ describe('test math functions', function () {
     test('check if array sorted in descending order or not', () => {
         expect(sortedDescending([4, 5, 7, 9])).toBe(false);
         expect(sortedDescending([9, 8, 7, 3])).toBe(true);
+    })
+
+    test('check factorial', () => {
+        expect(factorial(5)).toBe(120);
+        expect(factorial(4)).toBe(24);
     })
 });
