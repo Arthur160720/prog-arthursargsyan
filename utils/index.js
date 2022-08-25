@@ -53,6 +53,13 @@ async function readNumber(question, errorMessage, callback) {
     return number;
 }
 
+async function convertStringToArray (string, delimiter) {
+    return  string
+        .split(delimiter)
+        .filter(element =>
+            !isNaN(Number(element)));
+}
+
 class ProblemRegistry {
     #problems;
     #locale = 'en';
@@ -104,5 +111,6 @@ module.exports = {
     par,
     parg,
     readNumber,
-    ProblemRegistry
+    ProblemRegistry,
+    convertStringToArray
 }
