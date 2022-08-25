@@ -13,7 +13,7 @@ const {
     isThreeDigit,
     factorial, isFourDigit, checkIsArrayOrNot
 } = require("../utils/lib");
-const {par, problemLogging} = require("../utils");
+const {par, problemLogging, parb, parg} = require("../utils");
 
 async function processInputs() {
     await codeGoesHere();
@@ -71,6 +71,7 @@ async function problem1() {
 
 async function problem2() {
     function integerNumbers(array) {
+        console.log(`${parb('input array is:')} ${parg(array)}`);
 
         let quantity = 0;
         array.filter(x => isInteger(x)).forEach(x => x >= -5 && x <= 10 ? quantity++ : null);
@@ -150,6 +151,7 @@ async function problem2() {
 
 async function problem3() {
     function realNumbersArray(array) {
+        console.log(`${parb('input array is:')} ${parg(array)}`);
 
         let quantity = 0;
 

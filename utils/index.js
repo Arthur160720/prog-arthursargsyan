@@ -24,11 +24,15 @@ const BgCyan = "\x1b[46m"
 const BgWhite = "\x1b[47m"
 
 function par(p) {
-    return `${FgRed} ${p} ${Reset}`;
+    return `${FgRed}${p}${Reset}`;
+}
+
+function parb(p) {
+    return `${FgBlue}${p}${Reset}`;
 }
 
 function parg(p) {
-    return `${FgGreen} ${p} ${Reset}`;
+    return `${FgGreen}${p}${Reset}`;
 }
 
 
@@ -110,6 +114,7 @@ module.exports = {
     problemLogging,
     par,
     parg,
+    parb,
     readNumber,
     ProblemRegistry,
     convertStringToArray
