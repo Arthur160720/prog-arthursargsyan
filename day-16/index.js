@@ -11,7 +11,7 @@ const {
     sortedDescending,
     sortedAscending,
     isThreeDigit,
-    factorial, isFourDigit, checkIsArrayOrNot
+    factorial, isFourDigit, checkIsArrayOrNot, checkPrime
 } = require("../utils/lib");
 const {par, problemLogging} = require("../utils");
 
@@ -39,19 +39,51 @@ processInputs();
 
 /** 1. Նկարագրել ֆունկցիա, որն արգումենտում ստանում է n
  բնական թիվը եւ վերադարձնում է այդ թվի
- ա) ամենամեծ թվանշանի կարգահամարը (եթե այդ թվանշա-
- նը թվում հանդիպում է մի քանի անգամ վերադարձնել ա-
- մենաձախի կարգահամարը),
+ ա) ամենամեծ թվանշանի կարգահամարը,
  բ) բոլոր պարզ բաժանարարների քանակը,
- գ) 16-ական ներկայացման մեջ զրոների քանակը,
- դ) հարեւան զույգ թվանշանների քանակը: */
+ գ) հարեւան զույգ թվանշանների քանակը: */
 
 async function problem1() {
 
     function isNaturalOrNot(number) {
-        return isNatural(number);
+        return !isNatural(number);
     }
 
     let number = await readNumber('insert number - ', 'wrong input', isNaturalOrNot);
-    console.log("aa")
+    let array = [];
+    let indexOfMaxDigit = 0;
+
+    while (number) {
+        let digit = number % 10;
+        array.unshift(digit);
+        number = Math.trunc(number / 10);
+    }
+
+
+    for (let i = 0; i < array.length; i++) {
+        if (indexOfMaxDigit < array[i]) {
+            indexOfMaxDigit = i;
+        }
+    }
+    console.log(`a) the index of the max digit = ${indexOfMaxDigit}`);
+
+
+    let quantity = 0;
+    array.forEach(function (element) {
+        const isPrime = checkPrime(element);
+        if (isPrime) {
+            quantity++;
+        }
+    });
+    console.log(`b) quantity of prime numbers = ${quantity++}`)
+
+
+    let quantity1 = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (isEven(array[i]) && isEven(array[i + 1])) {
+            quantity1++;
+        }
+    }
+    console.log(`c) quantity of even neighbour digits = ${quantity1}`);
+
 }

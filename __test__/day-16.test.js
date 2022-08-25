@@ -2,7 +2,8 @@ const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findM
     sortedAscending,
     sortedDescending,
     factorial,
-    isFourDigit, checkIsArrayOrNot
+    isFourDigit, checkIsArrayOrNot,
+    checkPrime
 } = require('../utils/lib');
 
 describe('test math functions', function () {
@@ -91,5 +92,10 @@ describe('test math functions', function () {
     test('check factorial', () => {
         expect(factorial(5)).toBe(120);
         expect(factorial(4)).toBe(24);
+    })
+
+    test('check prime numbers', () => {
+        expect(checkPrime(5)).toBe(true);
+        expect(checkPrime(4)).toBe(false);
     })
 });
