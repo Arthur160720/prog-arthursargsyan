@@ -115,6 +115,29 @@ function checkPrime(number) {
     }
 }
 
+function random(min, max) {
+    return min + Math.floor(Math.random() * (max - min + 1));
+}
+
+function perfectNumber(number) {
+    let array = [];
+
+    for (let i = 1; i < 1000; i++) {
+        if (number % i === 0) {
+            array.push(i);
+        }
+    }
+
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+
+    if (number === sum - number) {
+        return true;
+    }else return false;
+
+}
 
 module.exports = {
     isEven,
@@ -137,5 +160,5 @@ module.exports = {
     sortedDescending,
     sortedAscending,
     factorial,
-    checkPrime
+    checkPrime, random, perfectNumber
 }
