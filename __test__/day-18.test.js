@@ -4,8 +4,7 @@ const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findM
     factorial,
     isFourDigit, checkIsArrayOrNot,
     checkPrime,
-    perfectNumber,
-    duplicateNumbers
+    perfectNumber
 } = require('../utils/lib');
 
 describe('test math functions', function () {
@@ -104,10 +103,5 @@ describe('test math functions', function () {
     test('check perfect numbers', () => {
         expect(perfectNumber(6)).toBe(true);
         expect(perfectNumber(50)).toBe(false);
-    })
-
-    test('check duplicate numbers', () => {
-        expect(duplicateNumbers([1, 2, 8, 6])).toBe(true);
-        expect(duplicateNumbers([1, 4, 5, 1])).toBe(false);
     })
 });

@@ -139,6 +139,16 @@ function perfectNumber(number) {
 
 }
 
+function duplicateNumbers(numbers) {
+    const unique = Array.from(new Set(numbers));
+
+    if(numbers.length === unique.length) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 module.exports = {
     isEven,
     isInteger,
@@ -160,5 +170,5 @@ module.exports = {
     sortedDescending,
     sortedAscending,
     factorial,
-    checkPrime, random, perfectNumber
+    checkPrime, random, perfectNumber, duplicateNumbers
 }

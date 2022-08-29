@@ -11,7 +11,7 @@ const {
     sortedDescending,
     sortedAscending,
     isThreeDigit,
-    factorial, isFourDigit, checkIsArrayOrNot, checkPrime, random, perfectNumber
+    factorial, isFourDigit, checkIsArrayOrNot, checkPrime, random, perfectNumber, duplicateNumbers
 } = require("../utils/lib");
 const {par, problemLogging} = require("../utils");
 
@@ -22,7 +22,7 @@ async function processInputs() {
 
 let problemsRegistry = new ProblemRegistry(problems, 'am');
 problemsRegistry.registerExecutors(
-    problem1);
+    problem1, problem2);
 
 async function codeGoesHere() {
     const showProblems = async () => problemsRegistry.showAllProblems();
@@ -124,3 +124,93 @@ async function problem1() {
 }
 
 
+/** 2. Տրված է իրական թվերի մատրից: Արտածել մատրիցի
+ ա) բոլոր տարրերի գումարը,
+ բ) բոլոր տողերի տարրերի գումարները,
+ գ) այն տողերի քանակը, որոնց բոլոր տարրերը մեծ են 5-ից,
+ դ) այն տողերի քանակը, որոնցում չկան կրկնվող տարրեր,
+ ե) այն տողերի տարրերի գումարները, որոնցում բոլոր
+ տարրերը մեծ են 5-ից,
+ զ) բոլոր տողերի նվազագույն տարրերից մեծագույնը: */
+
+async function problem2() {
+
+    function isNaturalOrNot(row, col) {
+        return !isNatural(row, col);
+    }
+
+    function isIntegerOrNot(min, max) {
+        return !isInteger(min, max);
+    }
+
+    let row = await readNumber('input number of rows - ', 'wrong input', isNaturalOrNot);
+    let col = await readNumber('input number of cols - ', 'wrong input', isNaturalOrNot);
+    let min = await readNumber('input minimum limit - ', 'wrong input', isIntegerOrNot);
+    let max = await readNumber('input maximum limit - ', 'wrong input', isIntegerOrNot);
+
+    let matrix = [];
+    for (let i = 0; i < row; i++) {
+        matrix.push([]);
+        for (let j = 0; j < col; j++) {
+            matrix[i][j] = random(min, max);
+        }
+    }
+    console.log(matrix);
+
+
+    let sumOfRows = matrix.reduce(function (p, c) {
+        p.push(c.reduce((p, c) => p + c, 0));
+        return p;
+    }, []);
+
+    let sumOfMatrix = sumOfRows.reduce((p, c) => p + c, 0);
+    console.log(`a) sum of matrix = ${sumOfMatrix}`);
+
+
+    let sumOfRowsMatrix = matrix.reduce(function (p, c) {
+        p.push(c.reduce((p, c) => p + c, 0));
+        return p;
+    }, []);
+
+    console.log(`b) sum of matrix rows = ${sumOfRowsMatrix}`);
+
+
+    let quantityOfRows = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        if (matrix[i].every(x => x > 5)) {
+            quantityOfRows += 1;
+        }
+    }
+
+    console.log(`c) quantity of rows that every element is greater than 5 = ${quantityOfRows}`);
+
+
+    let quantityRows = 0;
+    matrix.forEach(e => duplicateNumbers(e) ? quantityRows += 1 : 0);
+
+    console.log(`d) quantity of rows that have not a duplicate numbers = ${quantityRows}`);
+
+
+    let array = [];
+    for (let i = 0; i < matrix.length; i++) {
+        if (matrix[i].every(x => x > 5)) {
+            array.push(matrix[i]);
+        }
+    }
+
+    let sumOfMatrixRows = array.reduce(function (p, c) {
+        p.push(c.reduce((p, c) => p + c, 0));
+        return p;
+    }, []);
+
+    console.log(`e) sum of matrix rows that every element is greater than 5 = ${sumOfMatrixRows}`);
+
+
+    let array1 = [];
+    for (let i = 0; i < matrix.length; i++) {
+        array1.push(Math.min(...matrix[i]));
+    }
+
+    let maximum = Math.max(...array1);
+    console.log(`f) maximum of every rows minimum element = ${maximum}`);
+}
