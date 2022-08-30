@@ -1,4 +1,5 @@
 const {par} = require("./index");
+const {ask} = require("./read-from-terminal");
 
 function isEven(number) {
     return number % 2 === 0;
@@ -44,11 +45,11 @@ function isValidTriangle(n1, n2, n3) {
     return n1 + n2 + n3 === 180;
 }
 
-function findMaximumValue (number1, number2, number3) {
+function findMaximumValue(number1, number2, number3) {
     return Math.max(number1, number2, number3);
 }
 
-function findMinimumValue (number1, number2, number3) {
+function findMinimumValue(number1, number2, number3) {
     return Math.min(number1, number2, number3);
 }
 
@@ -135,8 +136,28 @@ function perfectNumber(number) {
 
     if (number === sum - number) {
         return true;
-    }else return false;
+    } else return false;
 
+}
+
+function duplicateNumbers(numbers) {
+    const unique = Array.from(new Set(numbers));
+
+    if (numbers.length === unique.length) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+async function readString(question) {
+    let string = await ask(question);
+
+    return string;
+}
+
+function isLowerCase(string, index) {
+    return string.charCodeAt(index) > 96 && string.charCodeAt(index) < 123;
 }
 
 module.exports = {
@@ -160,5 +181,5 @@ module.exports = {
     sortedDescending,
     sortedAscending,
     factorial,
-    checkPrime, random, perfectNumber
+    checkPrime, random, perfectNumber, duplicateNumbers, readString, isLowerCase
 }
