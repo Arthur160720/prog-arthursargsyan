@@ -160,6 +160,11 @@ function isLowerCase(string, index) {
     return string.charCodeAt(index) > 96 && string.charCodeAt(index) < 123;
 }
 
+function isUpperCase(string, index) {
+    return string.charCodeAt(index) > 64 && string.charCodeAt(index) < 91;
+}
+
+
 module.exports = {
     isEven,
     isInteger,
@@ -181,5 +186,5 @@ module.exports = {
     sortedDescending,
     sortedAscending,
     factorial,
-    checkPrime, random, perfectNumber, duplicateNumbers, readString, isLowerCase
+    checkPrime, random, perfectNumber, duplicateNumbers, readString, isLowerCase, isUpperCase
 }
