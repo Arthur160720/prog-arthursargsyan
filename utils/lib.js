@@ -1,5 +1,11 @@
+const {par} = require("./index");
+
 function isEven(number) {
     return number % 2 === 0;
+}
+
+function isNanOrNot(number) {
+    return Number.isNaN(number);
 }
 
 function isInteger(number) {
@@ -16,6 +22,10 @@ function isTwoDigit(number) {
 
 function isThreeDigit(number) {
     return number > 99 && number < 1000;
+}
+
+function isFourDigit(number) {
+    return number > 999 && number < 10000;
 }
 
 function isPalindrome(number) {
@@ -62,12 +72,43 @@ function lateralSurface(side) {
     return 6 * side * side;
 }
 
+function sortedDescending(array) {
+    let second_index;
+    for (let first_index = 0; first_index < array.length; first_index++) {
+        second_index = first_index - 1;
+        if (array[second_index] - array[first_index] < 0) return false;
+    }
+    return true;
+}
+
+function sortedAscending(array) {
+    let second_index;
+    for (let first_index = 0; first_index < array.length; first_index++) {
+        second_index = first_index + 1;
+        if (array[second_index] - array[first_index] < 0) return false;
+    }
+    return true;
+}
+
+function factorial(n) {
+    let answer = 1;
+    if (n === 0 || n === 1) {
+        return answer;
+    } else {
+        for (let i = n; i >= 1; i--) {
+            answer = answer * i;
+        }
+        return answer;
+    }
+}
+
 module.exports = {
     isEven,
     isInteger,
     isOdd,
     isTwoDigit,
     isThreeDigit,
+    isFourDigit,
     isPalindrome,
     isNatural,
     isValidTriangle,
@@ -77,6 +118,9 @@ module.exports = {
     changeSign,
     squareNumber,
     areaOfCube,
-    lateralSurface
+    lateralSurface,
+    isNanOrNot,
+    sortedDescending,
+    sortedAscending,
+    factorial
 }
-
