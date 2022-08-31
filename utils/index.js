@@ -24,11 +24,15 @@ const BgCyan = "\x1b[46m"
 const BgWhite = "\x1b[47m"
 
 function par(p) {
-    return `${FgRed} ${p} ${Reset}`;
+    return `${FgRed}${p}${Reset}`;
+}
+
+function parb(p) {
+    return `${FgBlue}${p}${Reset}`;
 }
 
 function parg(p) {
-    return `${FgGreen} ${p} ${Reset}`;
+    return `${FgGreen}${p}${Reset}`;
 }
 
 
@@ -51,6 +55,13 @@ async function readNumber(question, errorMessage, callback) {
     }
 
     return number;
+}
+
+async function convertStringToArray (string, delimiter) {
+    return  string
+        .split(delimiter)
+        .filter(element =>
+            !isNaN(Number(element)));
 }
 
 class ProblemRegistry {
@@ -103,6 +114,8 @@ module.exports = {
     problemLogging,
     par,
     parg,
+    parb,
     readNumber,
-    ProblemRegistry
+    ProblemRegistry,
+    convertStringToArray
 }

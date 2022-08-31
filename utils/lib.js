@@ -102,6 +102,7 @@ function factorial(n) {
     }
 }
 
+
 module.exports = {
     isEven,
     isInteger,
@@ -122,5 +123,5 @@ module.exports = {
     isNanOrNot,
     sortedDescending,
     sortedAscending,
-    factorial
+    factorial,
 }
