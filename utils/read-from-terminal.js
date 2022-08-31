@@ -17,8 +17,24 @@ async function readArray(question) {
     return convertStringToArray(string, " ");
 }
 
+async function readNumber(question, errorMessage, callback) {
+    let number = +await ask(question);
+    if (typeof callback !== 'function') {
+        throw Error('callback is not a function');
+    }
+
+    while (callback(number)) {
+        console.log(errorMessage);
+        number = +await ask(question);
+    }
+
+    return number;
+}
+
+
 module.exports = {
     ask,
     readArray,
-    close: () => rl.close()
+    close: () => rl.close(),
+    readNumber,
 }

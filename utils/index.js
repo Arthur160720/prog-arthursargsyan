@@ -1,4 +1,5 @@
 const {ask} = require("./read-from-terminal");
+
 const Reset = "\x1b[0m"
 const Bright = "\x1b[1m"
 const Dim = "\x1b[2m"
@@ -57,11 +58,10 @@ async function readNumber(question, errorMessage, callback) {
     return number;
 }
 
-async function convertStringToArray (string, delimiter) {
-    return  string
+async function convertStringToArray(string, delimiter) {
+    return string
         .split(delimiter)
-        .filter(element =>
-            !isNaN(Number(element)));
+        .filter(element => !isNaN(Number(element)));
 }
 
 class ProblemRegistry {
