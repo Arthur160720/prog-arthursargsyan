@@ -22,7 +22,7 @@ async function processInputs() {
 
 let problemsRegistry = new ProblemRegistry(problems, 'am');
 problemsRegistry.registerExecutors(
-    problem1, problem2, problem3, problem4, problem5);
+    problem1, problem2, problem3, problem4, problem5, problem6);
 
 async function codeGoesHere() {
     const showProblems = async () => problemsRegistry.showAllProblems();
@@ -164,15 +164,59 @@ async function problem5() {
         }
     }
 
-    let sortString = string.split('').sort().join('');
-    //console.log(sortString);
-
-    let a = "";
-    for (let i = 0; i < string.length - 1; i++) {
-        console.log(string[i]);
-        // if (string[i] < string[i++]) {
-        //     a += string[i];
-        // } else a += string[i++];
+    string = string.split("");
+    for (let i = 0; i < string.length; i++) {
+        for (let j = 0; j < string.length; j++) {
+            if (string[j] > string[i]) {
+                let temp = string[i];
+                string[i] = string[j];
+                string[j] = temp;
+            }
+        }
     }
-    console.log(a);
+    let stringInAlphabeticalOrder = string.join("");
+
+    console.log(stringInAlphabeticalOrder);
+
+    //let sortString = string.split('').sort().join('');
+    //console.log(sortString);
+}
+
+
+/** 6. Տրված  է  մինչեւ  40  սիմվոլ  պարունակող  տող:  Արտածել  այդ
+ տողը՝  նախապես  դրանում  կատարելով  հետեւյալ  փոփոխությունը.
+ ա)  բոլոր abc-երը փոխարինել def-ով,
+ բ) հեռացնել առաջին w տառը,
+ գ) հեռացնել բոլոր th-երը,
+ դ) առաջին x-ը փոխարինել ks-ով,
+ ե) բոլոր q տառերից հետո ավելացնել u,
+ զ) բոլոր  ph-երը  փոխարինել  f-ով,  իսկ  բոլոր  ed-երը  ing-երով: */
+
+async function problem6() {
+
+    let string = await readString('input string - ');
+
+    while (string.length > 40) {
+        console.log("string length is greater than 40");
+        string = await readString('input string - ');
+    }
+
+    let replaceAbcToDef = string.replaceAll("abc", "def");
+    console.log(`a) replace all abc letters to def = ${replaceAbcToDef}`);
+
+    let removeFirstLetter = string.replace("w", "");
+    console.log(`b) remove first w-letter = ${removeFirstLetter}`);
+
+    let removeAllThLetters = string.replaceAll("th", "");
+    console.log(`c) remove all th letters = ${removeAllThLetters}`);
+
+    let replaceFirstXLetterToKs = string.replace("x", "ks");
+    console.log(`d) replace first x-letter to ks = ${replaceFirstXLetterToKs}`);
+
+    let addULetter = string.replaceAll("q", "qu");
+    console.log(`e) adding u-letter after q-letter = ${addULetter}`);
+
+    let replaceLetters = string.replaceAll("ph", "f").replaceAll("ed", "ing");
+    console.log(`f) replace ph-letters to f and ed-letters to ing = ${replaceLetters}`);
+
 }
