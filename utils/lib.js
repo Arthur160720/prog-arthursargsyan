@@ -60,32 +60,18 @@ function changeSign(number) {
     return number * -1;
 }
 
-function squareNumber(number) {
-    return number ** 2;
-}
-
-function areaOfCube(side) {
-    return side ** 3;
-}
-
-function lateralSurface(side) {
-    return 6 * side * side;
-}
-
 function sortedDescending(array) {
-    let second_index;
-    for (let first_index = 0; first_index < array.length; first_index++) {
-        second_index = first_index - 1;
-        if (array[second_index] - array[first_index] < 0) return false;
+    for (let firstIndex = 0; firstIndex < array.length; firstIndex++) {
+       let secondIndex = firstIndex >= 1 ? firstIndex - 1 : 0;
+        if (array[secondIndex] - array[firstIndex] < 0) return false;
     }
     return true;
 }
 
 function sortedAscending(array) {
-    let second_index;
-    for (let first_index = 0; first_index < array.length; first_index++) {
-        second_index = first_index + 1;
-        if (array[second_index] - array[first_index] < 0) return false;
+    for (let firstIndex = 0; firstIndex < array.length; firstIndex++) {
+       let secondIndex = firstIndex + 1;
+        if (array[secondIndex] - array[firstIndex] < 0) return false;
     }
     return true;
 }
@@ -116,9 +102,6 @@ module.exports = {
     findMinimumValue,
     doubleValues,
     changeSign,
-    squareNumber,
-    areaOfCube,
-    lateralSurface,
     isNanOrNot,
     sortedDescending,
     sortedAscending,

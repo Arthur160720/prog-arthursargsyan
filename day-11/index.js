@@ -48,19 +48,18 @@ processInputs();
 async function problem1() {
     async function showResult() {
 
-        function checkNumberIsInteger(number) {
+        function isNaturalOrNot(number) {
             return !isNatural(number);
         }
 
-        let number = await readNumber('enter natural number', `${par('entered number is not satisfy for requirement')}`, checkNumberIsInteger);
+        let number = await readNumber('enter natural number', `${par('entered number is not satisfy for requirement')}`, isNaturalOrNot);
         let sumOfDigits = 0;
         let quantityOfDigits = 0;
         let productOfDigits = 1;
-        let array = [];
-        let minimumOfDigitsOdd = "";
+        let digitsInArray = [];
         let sumOfOddDigits = 0;
         let productOfEvenDigits = 1;
-        let array1 = [];
+        let digitsOfNumber = [];
         let max = "";
         let min = "";
         let squareOfMaxAndMinDifference = "";
@@ -72,9 +71,8 @@ async function problem1() {
             productOfDigits *= digit;
 
             if (isOdd(digit)) {
-                array.push(digit);
+                digitsInArray.push(digit);
             }
-            minimumOfDigitsOdd = Math.min(...array);
 
             if (digit > 4 && isOdd(digit)) {
                 sumOfOddDigits += digit;
@@ -84,15 +82,18 @@ async function problem1() {
                 productOfEvenDigits *= digit;
             }
 
-            array1.push(digit);
-            min = Math.min(...array1);
-            max = Math.max(...array1);
+            digitsOfNumber.push(digit);
+            min = Math.min(...digitsOfNumber);
+            max = Math.max(...digitsOfNumber);
             squareOfMaxAndMinDifference = (max - min) ** 2;
 
             number = Math.trunc(number / 10);
         }
+
+        let minimumOfOddDigits = Math.min(...digitsInArray);
+
         console.log(`a) sum of digits = ${sumOfDigits}\n   quantity of digits = ${quantityOfDigits}\n   product of digits = ${productOfDigits}`);
-        console.log(`b) Minimum of odd digits = ${minimumOfDigitsOdd}`);
+        console.log(`b) Minimum of odd digits = ${minimumOfOddDigits}`);
         console.log(`c) sum of odd digits = ${sumOfOddDigits}`);
         console.log(`d) product of even digits = ${productOfEvenDigits}`);
         console.log(`e) square of max and min difference = ${squareOfMaxAndMinDifference}`);
@@ -122,9 +123,9 @@ async function problem2() {
             number = Math.trunc(number / 10);
         }
 
-        let array1 = array.shift();
-        let array2 = array.pop();
-        let array3 = array2 + array + array1;
+        let firstDigit = array.shift();
+        let lastDigit = array.pop();
+        let array3 = lastDigit + array + firstDigit;
         let result = array3.replaceAll(',', '');
 
         console.log(`swap first and last digits = ${result}`);
@@ -172,11 +173,11 @@ async function problem3() {
             console.log('b) NO');
         } else console.log('b) YES');
 
-        if (sortedAscending(array) === true) {
+        if (sortedAscending(array)) {
             console.log("c) YES");
         } else console.log("c) NO");
 
-        if (sortedDescending(array) === true) {
+        if (sortedDescending(array)) {
             console.log("d) NO");
         } else console.log("d) YES");
 
