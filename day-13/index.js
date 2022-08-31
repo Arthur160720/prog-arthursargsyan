@@ -165,7 +165,7 @@ async function problem3() {
 
         let sum = 0;
         let quantity1 = 0;
-        let arithmeticAverage = sum / quantity1;
+        let arithmeticAverage;
         let difference = "";
 
         for (let i = 0; i < array.length; i++) {
