@@ -11,7 +11,17 @@ const {
     sortedDescending,
     sortedAscending,
     isThreeDigit,
-    factorial, isFourDigit, checkIsArrayOrNot, checkPrime, random, perfectNumber, readString, isLowerCase, isUpperCase
+    factorial,
+    isFourDigit,
+    checkIsArrayOrNot,
+    checkPrime,
+    random,
+    perfectNumber,
+    readString,
+    isLowerCase,
+    isUpperCase,
+    doesContainSomeSymbols,
+    isAlphabetWithSymbols, isLowerAndUpperCase
 } = require("../utils/lib");
 const {par, problemLogging} = require("../utils");
 
@@ -22,7 +32,7 @@ async function processInputs() {
 
 let problemsRegistry = new ProblemRegistry(problems, 'am');
 problemsRegistry.registerExecutors(
-    problem1, problem2, problem3, problem4, problem5, problem6);
+    problem1, problem2, problem3, problem4, problem5, problem6, problem12);
 
 async function codeGoesHere() {
     const showProblems = async () => problemsRegistry.showAllProblems();
@@ -101,14 +111,15 @@ async function problem3() {
 
     let string = await readString('input string - ');
 
-    for (let i = 0; i < string.length; i++) {
-        while (string.length > 60) {
-            string = await readString('input string - ');
-        }
-        while (!isLowerCase(string, i)) {
-            string = await readString('input string - ');
-        }
+    while (!isLowerCase(string)) {
+        string = await readString('input string - ');
     }
+
+    while (string.length > 60) {
+        console.log("string length is greater than 60");
+        string = await readString('input string - ');
+    }
+
     let stringWithDot = string + ".";
     let convertStringUpperCase = stringWithDot.toUpperCase();
     console.log(`convert string to Upper case ${convertStringUpperCase}`);
@@ -123,14 +134,15 @@ async function problem4() {
 
     let string = await readString('input string - ');
 
-    for (let i = 0; i < string.length; i++) {
-        while (string.length > 60) {
-            string = await readString('input string - ');
-        }
-        while (!isUpperCase(string, i)) {
-            string = await readString('input string - ');
-        }
+    while (!isUpperCase(string)) {
+        string = await readString('input string - ');
     }
+
+    while (string.length > 60) {
+        console.log("string length is greater than 60");
+        string = await readString('input string - ');
+    }
+
     let isStringAlphabeticalOrder = "";
     let quantity = 0;
 
@@ -155,13 +167,13 @@ async function problem5() {
 
     let string = await readString('input string - ');
 
-    for (let i = 0; i < string.length; i++) {
-        while (string.length > 200) {
-            string = await readString('input string - ');
-        }
-        while (!isLowerCase(string, i)) {
-            string = await readString('input string - ');
-        }
+    while (!isLowerCase(string)) {
+        string = await readString('input string - ');
+    }
+
+    while (string.length > 200) {
+        console.log("string length is greater than 200");
+        string = await readString('input string - ');
     }
 
     string = string.split("");
@@ -218,5 +230,63 @@ async function problem6() {
 
     let replaceLetters = string.replaceAll("ph", "f").replaceAll("ed", "ing");
     console.log(`f) replace ph-letters to f and ed-letters to ing = ${replaceLetters}`);
+
+}
+
+
+/** 12. Տրված է մի քանի տողանոց տեքստ՝ բաղկացած անգլերեն այբուբենի  տառերից,
+ կետադրական  նշաններից  ու  բացատներից: Համարելով, որ բառերն իրարից բաժանվում են
+ բացատներով  ու  կետադրական  նշաններով,  իսկ  նախադասությունները վերջանում են կետով՝
+ ա)  արտածել տեքստի տառերի, բառերի, նախադասությունների եւ տողերի քանակները,
+ բ) արտածել տեքստը՝ բոլոր բառերի առաջին տառերը դարձնելով մեծատառ, իսկ մնացածը՝ փոքրատառ,
+ գ) արտածել տեքստի ամենաերկար բառերից որեւէ մեկը,
+ դ) արտածել  տեքստի  բոլոր  n  տառանի  բառերը,  որտեղ  n-ը տրված թիվ է,
+ ե) արտածել  տեքստի  մեծատառով  սկսվող  եւ  փոքրատառով վերջացող բառերը,
+ զ) արտածել տեքստում ամենաշատը հանդիպող 3 բառերը,
+ է) արտածել տեքստի ամենաշատ փոքրատառ պարունակող բառերը,
+ ը) արտածել տեքստի բոլոր բառերը՝ այբբենական կարգով եւ առանց կրկնությունների,
+ թ) արտածել տեքստը՝ բոլոր հարեւան բառերի միջեւ մեկից ավելի բացատների փոխարեն թողնելով դրանցից մեկը,
+ բոլոր  նախադասությունների  առաջին  տառերը  դարձնելով մեծատառ, իսկ տեքստի մնացած տառերը՝ փոքրատառ: */
+
+async function problem12() {
+
+    let defaultVal = "The guitar is a fretted musical instrument that typically has six strings. It is usually held flat against the player's body and played by strumming or plucking the strings with the dominant hand, while simultaneously pressing selected strings against frets with the fingers of the opposite hand. A plectrum or individual finger picks may also be used to strike the strings. The sound of the guitar is projected either acoustically, by means of a resonant chamber on the instrument, or amplified by an electronic pickup and an amplifier."
+    let string = (await readString('input string - ')) || defaultVal;
+    console.log(string);
+
+    while (!isAlphabetWithSymbols(string)) {
+        string = await readString('input string - ');
+    }
+
+    let quantityOfLetters = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === " ") {
+            i += 1;
+        }
+
+        if (string[i] !== "," &&
+            string[i] !== "." &&
+            string[i] !== "'") {
+            quantityOfLetters += 1;
+
+        }
+    }
+
+    let quantityOfWords = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === " ") {
+            quantityOfWords += 1;
+        }
+    }
+
+    let quantityOfSentence = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === ".") {
+            quantityOfSentence += 1;
+        }
+    }
+    console.log(`a)  quantity of letters = ${quantityOfLetters}
+    quantity of words = ${quantityOfWords}
+    quantity of sentence = ${quantityOfSentence}`);
 
 }

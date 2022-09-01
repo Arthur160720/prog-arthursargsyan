@@ -141,17 +141,91 @@ function duplicateNumbers(numbers) {
 }
 
 async function readString(question) {
-    let string = await ask(question);
-
-    return string;
+    return ask(question);
 }
 
-function isLowerCase(string, index) {
-    return string.charCodeAt(index) > 96 && string.charCodeAt(index) < 123;
+function isLowerCase(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (!(str.charCodeAt(i) > 96 && str.charCodeAt(i) < 123)) {
+            return false
+        }
+    }
+    return true;
 }
 
-function isUpperCase(string, index) {
-    return string.charCodeAt(index) > 64 && string.charCodeAt(index) < 91;
+function isUpperCase(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (!(str.charCodeAt(i) > 64 && str.charCodeAt(i) < 91)) {
+            return false
+        }
+    }
+    return true;
+}
+
+function doesContainSomeSymbols(str) {
+    function doesContain(str, i) {
+        return (
+            str.charCodeAt(i) === 32 ||
+            str.charCodeAt(i) === 33 ||
+            str.charCodeAt(i) === 34 ||
+            str.charCodeAt(i) === 39 ||
+            str.charCodeAt(i) === 40 ||
+            str.charCodeAt(i) === 41 ||
+            str.charCodeAt(i) === 44 ||
+            str.charCodeAt(i) === 46 ||
+            str.charCodeAt(i) === 58 ||
+            str.charCodeAt(i) === 63
+        );
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if (!doesContain(str, i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isAlphabetWithSymbols(str) {
+    function doesContain(str, i) {
+        return (
+            str.charCodeAt(i) === 32 ||
+            str.charCodeAt(i) === 33 ||
+            str.charCodeAt(i) === 34 ||
+            str.charCodeAt(i) === 39 ||
+            str.charCodeAt(i) === 40 ||
+            str.charCodeAt(i) === 41 ||
+            str.charCodeAt(i) === 44 ||
+            str.charCodeAt(i) === 46 ||
+            str.charCodeAt(i) === 58 ||
+            str.charCodeAt(i) === 63 ||
+            str.charCodeAt(i) > 64 && str.charCodeAt(i) < 91 ||
+            str.charCodeAt(i) > 96 && str.charCodeAt(i) < 123
+        );
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if (!doesContain(str, i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isLowerAndUpperCase(str) {
+    function doesContain(str, i) {
+        return (
+            str.charCodeAt(i) > 64 && str.charCodeAt(i) < 91 ||
+            str.charCodeAt(i) > 96 && str.charCodeAt(i) < 123
+        );
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if (!doesContain(str, i)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 
@@ -174,5 +248,14 @@ module.exports = {
     sortedDescending,
     sortedAscending,
     factorial,
-    checkPrime, random, perfectNumber, duplicateNumbers, readString, isLowerCase, isUpperCase
+    checkPrime,
+    random,
+    perfectNumber,
+    duplicateNumbers,
+    readString,
+    isLowerCase,
+    isUpperCase,
+    doesContainSomeSymbols,
+    isAlphabetWithSymbols,
+    isLowerAndUpperCase
 }

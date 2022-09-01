@@ -1,11 +1,26 @@
-const {isEven, isPalindrome, isNatural, isValidTriangle, findMaximumValue, findMinimumValue, doubleValues, changeSign, squareNumber, isInteger, isOdd, isTwoDigit, isThreeDigit,
+const {isEven,
+    isPalindrome,
+    isNatural,
+    isValidTriangle,
+    findMaximumValue,
+    findMinimumValue,
+    doubleValues,
+    changeSign,
+    squareNumber,
+    isInteger,
+    isOdd,
+    isTwoDigit,
+    isThreeDigit,
     sortedAscending,
     sortedDescending,
     factorial,
-    isFourDigit, checkIsArrayOrNot,
+    isFourDigit,
     checkPrime,
-    perfectNumber, duplicateNumbers,
-    isLowerCase
+    perfectNumber,
+    duplicateNumbers,
+    isLowerCase,
+    isUpperCase,
+    doesContainSomeSymbols, isAlphabetWithSymbols, isLowerAndUpperCase
 } = require('../utils/lib');
 
 describe('test math functions', function () {
@@ -112,7 +127,28 @@ describe('test math functions', function () {
     })
 
     test('check lower case or not', () => {
-        expect(isLowerCase("ast", 1)).toBe(true);
-        expect(isLowerCase("AS45", 3)).toBe(false);
+        expect(isLowerCase("ast")).toBe(true);
+        expect(isLowerCase("AS45")).toBe(false);
+    })
+
+    test('check upper case or not', () => {
+        expect(isUpperCase("ARTHUR")).toBe(true);
+        expect(isUpperCase("as45eAE")).toBe(false);
+    })
+
+    test('check string does contain some symbols or not', () => {
+        expect(doesContainSomeSymbols("? .,:")).toBe(true);
+        expect(doesContainSomeSymbols("asdR5")).toBe(false);
+    })
+
+    test('check string does contain alphabet and some symbols or not', () => {
+        expect(isAlphabetWithSymbols("? ahdjHDFG.,:")).toBe(true);
+        expect(isAlphabetWithSymbols("asd+-R5")).toBe(false);
+    })
+
+
+    test('check string is lower and upper case or not', () => {
+        expect(isLowerAndUpperCase("Arthur")).toBe(true);
+        expect(isLowerAndUpperCase("arthur4")).toBe(false);
     })
 });
