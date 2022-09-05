@@ -115,12 +115,12 @@ async function problem1() {
     console.log(`e) sum of rows that contain 2 and more prime numbers = ${numsCount1}`);
 
 
-    let array = [];
+    let primeNumbers = [];
     for (let i = 0; i < matrix.length; i++) {
-        array.push(matrix[i].reduce((p, c) => p + c));
+        primeNumbers.push(matrix[i].reduce((p, c) => p + c));
     }
 
-    console.log(`f) rows digit sum is prime = ${array.filter(x => checkPrime(x))}`);
+    console.log(`f) rows digit sum is prime = ${primeNumbers.filter(x => checkPrime(x))}`);
 }
 
 
@@ -191,14 +191,14 @@ async function problem2() {
     console.log(`d) quantity of rows that have not a duplicate numbers = ${quantityRows}`);
 
 
-    let array = [];
+    let quantityOfCertainNumber = [];
     for (let i = 0; i < matrix.length; i++) {
         if (matrix[i].every(x => x > 5)) {
-            array.push(matrix[i]);
+            quantityOfCertainNumber.push(matrix[i]);
         }
     }
 
-    let sumOfMatrixRows = array.reduce(function (p, c) {
+    let sumOfMatrixRows = quantityOfCertainNumber.reduce(function (p, c) {
         p.push(c.reduce((p, c) => p + c, 0));
         return p;
     }, []);
@@ -206,11 +206,11 @@ async function problem2() {
     console.log(`e) sum of matrix rows that every element is greater than 5 = ${sumOfMatrixRows}`);
 
 
-    let array1 = [];
+    let minimumNumberOfRows = [];
     for (let i = 0; i < matrix.length; i++) {
-        array1.push(Math.min(...matrix[i]));
+        minimumNumberOfRows.push(Math.min(...matrix[i]));
     }
 
-    let maximum = Math.max(...array1);
+    let maximum = Math.max(...minimumNumberOfRows);
     console.log(`f) maximum of every rows minimum element = ${maximum}`);
 }
