@@ -105,3 +105,5 @@ dist
 
 /node_modules
 /.idea
+
+/day-26/node_modules
