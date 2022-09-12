@@ -39,9 +39,11 @@
 // });
 
 
-import fs from "fs";
+import fs from "node:fs/promises";
 import path from "path";
 import express from "express";
+
+
 const app = express();
 const port = 3000;
 
@@ -55,36 +57,30 @@ console.log(path.resolve());
 
 const dir = path.join(path.resolve(), "/index.json");
 
-// fs.writeFile(dir, '{"nameSurname": "Arthur Sargsyan"}', err => {
-//     if (err) {
-//         console.error(err);
-//     }
-// });
-
-// fs.readFile(dir, (req, res) => {
-//     console.log(res.toString());
-// });
-
 function makeId() {
     return Date.now();
 }
 
-app.post('/nameSurname', (req, res) => {
-    // const {nameSurname} = '/index.json';
-    // console.log(nameSurname);
-    // res.json({nameSurname, id: makeId()});
-       res.json(fs.writeFile(dir, '{"nameSurname": "Arthur Sargsyan"}', err => {
-        if (err) {
-            console.error(err);
-        }
-    }));
 
-    //res.json({nameSurname, id:makeId()});
+app.post('/nameSurname', async (req, res) => {
+    let {name, surname, age} = req.body;
+    let id = makeId();
+    let credentials = {id, name, surname, age};
+
+    let data = JSON.stringify(credentials);
+    try {
+        await fs.writeFile(dir, data);
+        res.json(credentials);
+    } catch (err) {
+        res.json(err);
+    }
 });
 
-app.get('/nameSurname', (req, res) => {
-    // res.send(`my name is Arthur and surname is Sargsyan`);
-    res.send(fs.readFile(dir, (req, res) => {
-        console.log(res.toString());
-    }));
+app.get('/nameSurname', async (req, res) => {
+    try {
+        let data = await fs.readFile(dir);
+        res.json(data.toString());
+    } catch (err) {
+        res.json(err);
+    }
 });
