@@ -103,5 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
+/day-32/node_modules
 /node_modules
 /.idea
+/nameSurname.txt
+/Surname.txt
+/index.json
+/Dom Exps
+/SCSS
