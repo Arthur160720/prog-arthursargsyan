@@ -1,0 +1,347 @@
+body {
+    background: lightgray;
+}
+
+.main1 {
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+    'signIn  signInWelcome';
+}
+
+.main1 .signIn {
+    background: lemonchiffon;
+    position: relative;
+    font-family: Montserrat, sans-serif;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    grid-area: signIn;
+}
+
+.main1 .title {
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+}
+
+.main1 .logo1 .facebook {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 70%;
+    left: 30%;
+}
+
+.main1 .logo2 .google {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 55%;
+    left: 45%;
+}
+
+.main1 .logo3 .linkedin {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 40%;
+    left: 60%;
+}
+
+.main1 .account {
+    text-align: center;
+    position: absolute;
+    top: 130px;
+    font-size: 12px;
+    right: 0;
+    left: 0;
+}
+
+.main1 .email {
+    position: absolute;
+    background: lightgray;
+    height: 25px;
+    top: 170px;
+    font-size: 12px;
+    left: 60px;
+    border: lightgray;
+}
+
+.main1 .password {
+    position: absolute;
+    background: lightgray;
+    height: 25px;
+    top: 210px;
+    font-size: 12px;
+    left: 60px;
+    border: lightgray;
+}
+
+.main1 .forgotPassword {
+    position: absolute;
+    text-align: center;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+.main1 .button {
+    position: absolute;
+    bottom: 70px;
+    left: 100px;
+    font-size: 12px;
+    height: 30px;
+    width: 100px;
+    background: #ff4b2b;
+    color: white;
+    border-radius: 100px;
+    border: #ff4b2b;
+}
+
+
+.main1 .signInWelcome {
+    background: #ff416c;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    font-family: Montserrat, sans-serif;
+
+    grid-area: signInWelcome;
+}
+
+.main1 .hello {
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    left: 0;
+}
+
+.main1 .text1 {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+
+.main1 .text2 {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 170px;
+    right: 0;
+    left: 0;
+}
+
+.main1 .button1 {
+    position: absolute;
+    bottom: 150px;
+    left: 100px;
+    font-size: 12px;
+    height: 30px;
+    width: 100px;
+    color: white;
+    background: #ff416c;
+    border-radius: 100px;
+    border: solid 1px white;
+}
+
+
+
+.main2 {
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas:
+    'signUpWelcome  signUp';
+}
+
+.main2 .signUp {
+    background: lemonchiffon;
+    position: relative;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: Montserrat, sans-serif;
+
+    grid-area: signUp;
+}
+
+.main2 .title {
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+}
+
+.main2 .logo1 .facebook {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 70%;
+    left: 30%;
+}
+
+.main2 .logo2 .google {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 55%;
+    left: 45%;
+}
+
+.main2 .logo3 .linkedin {
+    position: absolute;
+    border-radius: 50%;
+    border: solid 1px;
+    width: 30px;
+    height: 30px;
+    top: 100px;
+    right: 40%;
+    left: 60%;
+}
+
+.main2 .account {
+    text-align: center;
+    position: absolute;
+    top: 130px;
+    font-size: 12px;
+    right: 0;
+    left: 0;
+}
+
+.main2 .name {
+    position: absolute;
+    background: lightgray;
+    height: 25px;
+    top: 170px;
+    font-size: 12px;
+    left: 60px;
+    border: lightgray;
+}
+
+.main2 .email {
+    position: absolute;
+    background: lightgray;
+    height: 25px;
+    top: 210px;
+    font-size: 12px;
+    left: 60px;
+    border: lightgray;
+}
+
+.main2 .password {
+    position: absolute;
+    background: lightgray;
+    height: 25px;
+    top: 250px;
+    font-size: 12px;
+    left: 60px;
+    border: lightgray;
+}
+
+.main2 .button {
+    position: absolute;
+    bottom: 70px;
+    left: 100px;
+    font-size: 12px;
+    height: 30px;
+    width: 100px;
+    background: #ff4b2b;
+    color: white;
+    border-radius: 100px;
+    border: #ff4b2b;
+}
+
+.main2 .signUpWelcome {
+    background: #ff416c;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    font-family: Montserrat, sans-serif;
+
+    grid-area: signUpWelcome;
+}
+
+.main2 .hello {
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    left: 0;
+}
+
+.main2 .text1 {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+
+.main2 .text2 {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 170px;
+    right: 0;
+    left: 0;
+}
+
+.main2 .button1 {
+    position: absolute;
+    bottom: 150px;
+    left: 100px;
+    font-size: 12px;
+    height: 30px;
+    width: 100px;
+    color: white;
+    background: #ff416c;
+    border-radius: 100px;
+    border: solid 1px white;
+}
