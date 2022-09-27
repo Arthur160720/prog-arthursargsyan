@@ -1,0 +1,65 @@
+[
+  {
+    "id": "41a65ed2-a674-4cd0-bec4-ad18c97fcc30",
+    "name": "Ergonomic Steel Chair",
+    "price": "$211",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "be5496f7-d5d7-45c2-86c7-25f636707846",
+    "name": "Elegant Plastic Keyboard",
+    "price": "$952",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "af5008d1-4466-49e3-aa21-570857517c21",
+    "name": "Sleek Bronze Shirt",
+    "price": "$232",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "00a32134-2639-43e4-8699-409ba729ed4f",
+    "name": "Fantastic Metal Shoes",
+    "price": "$762",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "138c2048-ff62-4917-a5c6-5849d3afeb5c",
+    "name": "Sleek Rubber Soap",
+    "price": "$164",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "1bd8f942-e156-409a-9418-4706a2deeff6",
+    "name": "Rustic Granite Ball",
+    "price": "$179",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "4cc2067f-1346-4704-9c88-cd5b05fe2eda",
+    "name": "Unbranded Fresh Chicken",
+    "price": "$825",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "449d166c-e0f8-404b-b818-8dc25ff76f64",
+    "name": "Luxurious Frozen Chips",
+    "price": "$201",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  },
+  {
+    "id": "9dc9fa91-2275-47a1-a1c3-ea62a8fd2682",
+    "name": "Awesome Bronze Pants",
+    "price": "$164",
+    "image": "https://loremflickr.com/100/100/abstract",
+    "date": "2022-09-26T09:48:40.924Z"
+  }
+]
