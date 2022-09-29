@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    background: lightgray;
+}
+
+.container {
+    width: 800px;
+    height: 400px;
+    background: bisque;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.main {
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "one two";
+}
+
+.one {
+    justify-content: center;
+    height: 250px;
+    width: 150px;
+    grid-area: one;
+}
+
+.one .image {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 250px;
+    width: 150px;
+}
+
+.one .mobileImage {
+    position: relative;
+    height: 250px;
+    width: 150px;
+    display: none;
+}
+
+.two {
+    text-align: left;
+    position: relative;
+    height: 250px;
+    width: 150px;
+    grid-area: two;
+    background: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: Fraunces, serif;
+}
+
+.two .two__littleTitle {
+    font-size: 8px;
+    text-transform: uppercase;
+    margin: 10px;
+    color: gray;
+}
+
+.two .two__title {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 20px;
+    margin: 10px;
+}
+
+.two .two__description {
+    font-size: 10px;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.two .two__discountPrice {
+    position: absolute;
+    top: 180px;
+    color: green;
+    font-weight: bolder;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.two .two__price {
+    position: absolute;
+    top: 185px;
+    left: 80px;
+    text-decoration-line: line-through;
+    font-size: 10px;
+    margin: 10px;
+    color: gray;
+}
+
+.two .two__button {
+    position: absolute;
+    top: 210px;
+    left: 2px;
+    margin: 10px;
+    background: seagreen;
+    border: seagreen;
+    color: white;
+    width: 125px;
+    height: 23px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 375px) {
+
+    .container {
+        background: bisque;
+        height: 100%;
+        width: 350px;
+    }
+
+    .main {
+        height: 400px;
+        width: 150px;
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "one" "two";
+    }
+    .one {
+        justify-content: center;
+        height: 150px;
+        width: 150px;
+        grid-area: one;
+    }
+    .one .image {
+        display: none;
+    }
+    .one .mobileImage {
+        display: grid;
+        width: 150px;
+        height: 150px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    .two {
+        width: 150px;
+        height: 250px;
+        grid-area: two;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0;
+        font-family: Montserrat, serif;
+    }
+}
