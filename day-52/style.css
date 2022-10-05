@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: grid;
+    /*margin-right: 100px;*/
+    /*margin-left: 100px;*/
+    justify-content: center;
+    align-items: center;
+
+    grid-template-rows: 0.5fr 0.3fr 2fr;
+    grid-template-areas:
+    "header"
+    "nav"
+    "main";
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-rows: 0.1fr 0.4fr;
+
+    grid-template-areas:
+    "container1"
+    "container2";
+}
+
+.container1 {
+    display: flex;
+    justify-content: flex-start;
+    height: 20px;
+    font-size: 10px;
+}
+
+.container1 .welcome {
+    margin-left: auto;
+}
+
+.container1 .telephone {
+    color: seagreen;
+    font-weight: bold;
+    align-self: center;
+}
+
+.container1 .text {
+    margin-left: auto;
+}
+
+.container1 .information {
+    font-family: Quicksand, sans-serif;
+    text-decoration: none;
+    margin-right: 5px;
+    color: black;
+    opacity: 0.5;
+}
+
+.container1 .information:hover {
+    opacity: 1;
+}
+
+.container1 .information1 {
+    text-decoration: none;
+    margin-right: 5px;
+    color: black;
+    opacity: 0.5;
+}
+
+.container1 .information1:hover {
+    opacity: 1;
+}
+
+.container1 .information::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    margin: 2px -3px;
+    background: darkgray;
+}
+
+.container1 .button1 {
+    margin-left: auto;
+    height: 11px;
+    font-size: 10px;
+    background: white;
+    border: white;
+    width: 54px;
+    opacity: 0.5;
+}
+
+.container1 .button1:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.container1 .button2 {
+    height: 10px;
+    font-size: 10px;
+    background: white;
+    border: white;
+    width: 41px;
+    opacity: 0.5;
+}
+
+.container1 .button2:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    position: static;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container2 img {
+    width: 100px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 380px;
+    height: 35px;
+    border: solid 2px #3BB77E;
+    border-radius: 5px;
+}
+
+.header-nav .categories {
+    font-size: 12px;
+    height: 30px;
+    width: 106px;
+    background: white;
+    border: none;
+}
+
+.header-nav .search {
+    font-size: 10px;
+    height: 30px;
+    width: 250px;
+    border: none;
+    outline: none;
+}
+
+.container2 .location {
+    height: 25px;
+    width: 108px;
+    font-size: 12px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+    background: white;
+}
+
+.container2 .header-info {
+    text-decoration: none;
+    color: inherit;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.container-nav {
+    font-size: 12px;
+    margin-right: auto;
+}
+
+.container-nav .all-categories {
+    border: none;
+    background: #3BB77E;
+    height: 25px;
+    border-radius: 5px;
+    color: white;
+}
+
+.deals {
+    text-decoration: none;
+    color: inherit;
+    font-size: 12px;
+}
+
+.container-nav .home {
+    /*font-family: Quicksand, sans-serif;*/
+    border: none;
+    background: white;
+    width: 58px;
+}
+
+.about {
+    text-decoration: none;
+    color: inherit;
+    font-size: 12px;
+}
+
+.container-nav .shop {
+    border: none;
+    background: white;
+    width: 52px;
+}
+
+.container-nav .vendors {
+    border: none;
+    background: white;
+    width: 72px;
+}
+
+.container-nav .mega-menu {
+    border: none;
+    background: white;
+    width: 94px;
+}
+
+.container-nav .blog {
+    border: none;
+    background: white;
+    width: 50px;
+}
+
+.container-nav .pages {
+    border: none;
+    background: white;
+    width: 58px;
+}
+
+.contact {
+    text-decoration: none;
+    color: inherit;
+    font-size: 12px;
+}
+
+.container-radio {
+    display: inline-block;
+    align-self: flex-end;
+}
+
+nav .radio {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    width: 130px;
+    height: 35px;
+}
+
+.hearing {
+    margin-bottom: auto;
+    margin-right: 5px;
+    width: 25px;
+}
+
+.frequency {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3BB77E;
+    margin-bottom: auto;
+}
+
+.support {
+    font-size: 8px;
+    color: black;
+    opacity: 0.5;
+    font-weight: normal;
+}
+
+main img {
+    height: 300px;
+    width: 920px;
+    border-radius: 10px;
+}
+

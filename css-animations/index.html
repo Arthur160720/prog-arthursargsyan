@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Animations </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <section class="header-content">
+
+        <img src="../day-47/assets/images/avatar-angela-gray.webp"
+             class="angela-gray animate-pop-in" alt="angela's photo">
+        <h1 class="header-title animate-pop-in"> Your awesome landing page </h1>
+        <h3 class="header-subtitle animate-pop-in"> A useful start for your
+            projects </h3>
+        <button class="header-button animate-pop-in"> Get started today </button>
+
+    </section>
+
+    <section class="header-down-arrow">
+
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAB8CAMAAACcwCSMAAAAMFBMVEX///8BAQMAAADZ2dlwcHCYmJilpaWgoKCoqKmcnJ3KyspgYGGVlZVlZWWYmJqfn6E8WawYAAABr0lEQVRoge2ZW3bCMAxEXdEQwqPsf7dtSoOT4IdkS+KjcxeQe5QZyzkQAoMDfQihA+e5LCCHHHLIIYcccsghhxxyyCGHHHLIIYcccsghhxxyyCGHHHLIIf838vPts8ZFLr9UH3o7z/aBqkjdP/Yqw2P2Y8vT+yA6Lm/+5G1fuUOYfO1E07p1g6f9mfcb7ERf+xPn1rpN3s6tIzqlts3oYU/O7ZT7S9cc7QV3CHdbO9E97zZuXaZrEcMTl+1axGzT7nZqmquNvdi1iEnnmW6T3Bl5m9kFbvVNSzTy3cq5s/M2sIvdirmL8l5Q2rTVnWo4e9PcMwq5N+S90L1pia6t7u5bhnWX5OnKvTlvBXu3u+PNd77zB42t6+papOnEdZyxLQ25K+S9IN60jTs1jXB2xblnRLmr5d1gV3cLvqyE30w8mLmrdk1oV+5ahJG7Qd5su6G7esuo3CV5irmb5b1Q2LRGPV+TPe8m53tPpnWmXavYndzJ1pl3LfLSOoeuRXazO849s8k98Ru2m92ta5HnpnU533v+Wufatchv65y7Fpnm/+ZM77ESwxu6Fhn7uvYNgQciASla6/oAAAAASUVORK5CYII=" alt="down-arrow" width="50">
+
+    </section>
+
+</header>
+
+<script>
+    document.body.className += "js-loading";
+
+    window.addEventListener("load", showPage, false);
+
+    function showPage() {
+        document.body.className = document.body.className.replace("js-loading", "");
+    }
+
+</script>
+
+</body>
+</html>
