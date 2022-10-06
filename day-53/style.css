@@ -1,0 +1,285 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    grid-template-areas:
+    "product-container character";
+
+    padding: 1rem;
+    width: 80%;
+    margin: auto;
+}
+
+.product-container {
+    grid-area: product-container;
+}
+
+.product {
+    width: 100%;
+    /*margin: auto auto 1rem 0;*/
+    padding: 0 1.2rem;
+}
+
+.product-img {
+    border: solid 0.1rem lightgray;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.product-ig {
+    display: none;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* forward & Back buttons */
+.Back, .forward {
+    cursor: pointer;
+    position: absolute;
+    top: 48%;
+    width: auto;
+    margin-top: -23px;
+    padding: 17px;
+    color: grey;
+    font-weight: bold;
+    font-size: 19px;
+    transition: 0.4s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+}
+
+/* Place the "forward button" to the right */
+.forward {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+/*when the user hovers,add a black background with some little opacity */
+.Back:hover, .forward:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption Info */
+.Info {
+    color: #e3e3e3;
+    font-size: 16px;
+    padding: 10px 14px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+ /*The circles or bullets and indicators */
+.dots {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+    background-color: #acc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+}
+
+.enable, .dots:hover {
+    background-color: #717161;
+}
+
+/* Faint animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.4s;
+    animation-name: fade;
+    animation-duration: 1.4s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+}
+
+.character {
+    width: 100%;
+    grid-area: character;
+    display: flex;
+    flex-direction: column;
+    /*margin-right: 5rem;*/
+    /*margin-left: 5rem;*/
+    padding: 0 4.2rem;
+}
+
+.character-sale {
+    font-family: Quicksand, sans-serif;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    color: #f74b81;
+    background: #fde0e9;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-family: Quicksand, sans-serif;
+    font-size: 4rem;
+}
+
+.title1 {
+    font-family: Quicksand, sans-serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.character-price {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "dollar sale-off";
+
+    width: 30%;
+    margin-bottom: 5rem;
+}
+
+.dollar {
+    font-size: 5rem;
+    font-family: Quicksand, sans-serif;
+    color: #3BB77E;
+    font-weight: bold;
+    grid-area: dollar;
+}
+
+.sale {
+    text-decoration: line-through;
+    font-family: Quicksand, sans-serif;
+    font-size: 2rem;
+    color: black;
+    opacity: 0.5;
+    font-weight: 700;
+}
+
+.sale-off {
+    color: #FDC040;
+    grid-area: sale-off;
+    font-family: Quicksand, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-text {
+    font-size: 1.7rem;
+    color: #7E7E7E;
+    margin-bottom: 3rem;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+}
+
+.character-weight {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.size-weight {
+    font-size: 1.5rem;
+}
+
+.weight {
+    cursor: pointer;
+    width: 4rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.weight:hover {
+    border: solid 0.1rem #3BB77E;
+    border-radius: 0.3rem;
+    background: #3BB77E;
+}
+
+.inputs {
+    visibility: hidden;
+}
+
+.character-add-to-cart {
+    width: 80%;
+    height: 5rem;
+}
+
+.quantity-product {
+    height: 5rem;
+    width: 10rem;
+    text-align: center;
+    border: solid #3BB77E;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    outline: none;
+    margin-right: 0.3rem;
+}
+
+.add-to-cart {
+    height: 5rem;
+    width: 20rem;
+    text-align: center;
+    border: solid #3BB77E;
+    background: #3BB77E;
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    outline: none;
+    color: white;
+}
+
+.cart-list {
+    width: 2rem;
+    height: 2rem;
+}
+
+.wish {
+    background: #FFFFFF;
+    border: solid 0.1rem lightgray;
+    width: 5rem;
+    height: 5rem;
+}
+
+.wish__list {
+    width: 2rem;
+    height: 2rem;
+}
+
+.shuffle {
+    background: #FFFFFF;
+    border: solid 0.1rem lightgray;
+    width: 5rem;
+    height: 5rem;
+}
+
+.shuffle__list {
+    width: 2rem;
+    height: 2rem;
+}

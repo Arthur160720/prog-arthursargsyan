@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="container">
+
+    <div class="product-container">
+
+        <div class="product">
+
+            <img class="product-img" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/product-16-2.jpg" alt="">
+
+        </div>
+
+        <div class="slideshow-container fade">
+
+            <div class="Containers">
+                <img class="img1" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-3.jpg" style="cursor: pointer" width="24%" alt="">
+                <img class="img2" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-4.jpg" style="cursor: pointer" width="24%" alt="">
+                <img class="img3" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-5.jpg" style="cursor: pointer" width="24%" alt="">
+                <img class="img4" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-6.jpg" style="cursor: pointer" width="24%" alt="">
+            </div>
+
+            <div class="Containers">
+                <img class="img5" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-7.jpg" style="cursor: pointer" width="24%" alt="">
+                <img class="img6" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-8.jpg" style="cursor: pointer" width="24%" alt="">
+                <img class="img7" src="https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/thumbnail-9.jpg" style="cursor: pointer" width="24%" alt="">
+            </div>
+
+            <!-- Back and forward buttons -->
+            <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+    </div>
+
+        <div class="character">
+
+        <p class="character-sale"> Sale Off </p>
+
+        <h2 class="title"> Seeds of Change </h2>
+        <h2 class="title1"> Organic Quinoa, Brown </h2>
+
+        <div class="character-price">
+
+            <span class="dollar"> $38 </span> <span class="sale-off"> 26% Off  <span class="sale"> $52 </span> </span>
+
+        </div>
+
+        <span class="character-text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
+            Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi. </span><br>
+
+        <div class="character-weight">
+            <span class="size-weight"> Size/Weight: </span>
+            <input class="inputs" data-checked="false" type="radio" id="50g" name="switch-pos">
+            <label class="weight" for="50g">50g</label>
+            <input class="inputs" data-checked="false" type="radio" id="60g" name="switch-pos">
+            <label class="weight" for="60g">60g</label>
+            <input class="inputs" data-checked="false" type="radio" id="80g" name="switch-pos">
+            <label class="weight" for="80g">80g</label>
+            <input class="inputs" data-checked="false" type="radio" id="100g" name="switch-pos">
+            <label class="weight" for="100g">100g</label>
+            <input class="inputs" data-checked="false" type="radio" id="120g" name="switch-pos">
+            <label class="weight" for="120g">120g</label>
+        </div>
+
+        <div class="character-add-to-cart">
+
+            <label> <input class="quantity-product" type="number" id="quantity" name="quantity" min="1"> </label>
+            <button class="add-to-cart"> <img src="haha/" alt=""> Add To Cart</button>
+            <button class="wish"> <img class="wish__list" src="data:image/png;base64,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" alt=""> </button>
+            <button class="shuffle"> <img class="shuffle__list" src="data:image/png;base64,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" alt=""> </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="index.js"> </script>
+
+</body>
+</html>
