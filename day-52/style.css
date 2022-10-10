@@ -29,26 +29,17 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
 
-    margin-left: 15rem;
-    margin-right: 15rem;
-
-    grid-template-rows: 0.5fr 0.3fr 2fr;
-    grid-template-areas:
-    "header"
-    "nav"
-    "main";
+    width: 144rem;
+    margin: 0 auto;
+    border: 1px red solid;
 }
 
 .header {
-    grid-area: header;
-    display: grid;
-    grid-template-rows: 0.1fr 1fr;
-    margin-bottom: 4rem;
-
-    grid-template-areas:
-    "container1"
-    "container2";
+    display: flex;
+    flex-direction: column;
 }
 
 .header__container-info {
@@ -186,6 +177,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 12.2rem;
+    width: 100%;
 }
 
 .header-nav__img {
@@ -262,6 +255,8 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
+    height: 7.3rem;
 }
 
 .container-nav {
@@ -460,6 +455,8 @@ body {
 
 .nav-radio-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 18.5rem;
 }
@@ -683,30 +680,30 @@ body {
 }
 
 .advertisement__item-background1 {
-    width: 51.2rem;
+    width: 46rem;
     height: 30.7rem;
     border-radius: 1.5rem;
 
     background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-1.png");
-    background-size: 51.2rem 30.7rem;
+    background-size: 46rem 30.7rem;
 }
 
 .advertisement__item-background2 {
-    width: 51.2rem;
+    width: 46rem;
     height: 30.7rem;
     border-radius: 1.5rem;
 
     background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-2.png");
-    background-size: 51.2rem 30.7rem;
+    background-size: 46rem 30.7rem;
 }
 
 .advertisement__item-background3 {
-    width: 51.2rem;
+    width: 46rem;
     height: 30.7rem;
     border-radius: 1.5rem;
 
     background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-3.png");
-    background-size: 51.2rem 30.7rem;
+    background-size: 46rem 30.7rem;
 }
 
 .advertisement__item-credentials {
@@ -795,10 +792,10 @@ body {
 .popular-products__item {
     position: relative;
     border-radius: 1.5rem;
-    border: 1px solid #ececec;
-    width: 29.6rem;
+    border: 0.1rem solid #ececec;
+    width: 26.5rem;
     height: 47.5rem;
-    padding: 2.5rem 2.5rem 0;
+    padding: 1rem 1rem 0;
 }
 
 .popular-products__badge {
@@ -924,7 +921,7 @@ body {
 }
 
 .daily-best-sells__products-advertisement {
-    width: 37.8rem;
+    width: 32rem;
     height: 52rem;
     background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-4.png");
     background-size: 37.8rem 52rem;
@@ -938,14 +935,14 @@ body {
     height: 29.5rem;
     font-size: 1.4rem;
     font-family: Quicksand, sans-serif;
-    padding: 0 4.5rem;
+    padding: 0 3.5rem;
     margin-top: 5rem;
 }
 
 .daily-best-sells__advertisement-title {
     width: 30rem;
     height: 9rem;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-decoration: none;
     color: var(--general-color);
     font-weight: 600;
@@ -974,7 +971,7 @@ body {
     position: relative;
     border-radius: 1.5rem;
     border: 1px solid #ececec;
-    width: 27.6rem;
+    width: 26.5rem;
     height: 52rem;
     padding: 2.5rem 2.5rem 0;
 }
@@ -1083,24 +1080,26 @@ body {
 .deal-of-day__items {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    height: 57.4rem;
 }
 
 .deal-of-day__item {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 37.8rem;
+    width: 34rem;
     height: 46.2rem;
     margin-top: 5rem;
 }
 
 .deal-of-day__background-image {
-    width: 37.8rem;
+    width: 34rem;
     height: 33.5rem;
     border-radius: 1rem;
 
     background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-5.png");
-    background-size: 37.8rem 33.5rem;
+    background-size: 34rem 33.5rem;
 }
 
 .deal-of-day__time-table {
@@ -1146,8 +1145,8 @@ body {
 }
 
 .deal-of-day__description-and-more {
-    width: 32.5rem;
-    height: 19.2rem;
+    width: 30rem;
+    height: 20rem;
     background: white;
     position: absolute;
     top: 25rem;
@@ -1240,7 +1239,7 @@ body {
 }
 
 .advertised֊product__item {
-    width: 40.2rem;
+    width: 35rem;
     height: 11.7rem;
     margin-bottom: 3rem;
 }
@@ -1364,7 +1363,7 @@ body {
 }
 
 .discount-and-more__item {
-    width: 30rem;
+    width: 27rem;
     height: 10.7rem;
     color: var(--discount-color);
     background: #F4F6FA;
