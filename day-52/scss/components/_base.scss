@@ -1,0 +1,37 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Quicksand, sans-serif;
+}
+
+:root {
+  --secondary-color: #7E7E7E;
+  --primary-color: #3BB77E;
+  --general-color: #253D4E;
+  --feature-product-cart-color: #F4F6FA;
+  --feature-product-button-color: #F2F3F4;
+  --badge-color: #FFFFFF;
+  --category-color: #ADADAD;
+  --product-add-color: #DEF9EC;
+  --add-to-cart-hover-color: #FDC040;
+  --discount-color: #242424;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 144rem;
+  margin: 0 auto;
+}

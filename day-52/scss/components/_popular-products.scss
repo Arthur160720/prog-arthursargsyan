@@ -1,0 +1,131 @@
+.popular-products-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 109rem;
+  padding: 2.5rem 0;
+  font-size: 1.4rem;
+  color: var(--general-color);
+}
+
+.popular-products__categories {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3.8rem;
+  margin-bottom: 3rem;
+}
+
+.popular-products__categories-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.popular-products__categories-item {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.popular-products__categories-item--green {
+  color: var(--primary-color);
+}
+
+.popular-products__items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 49.3rem;
+  margin-bottom: 3rem;
+}
+
+.popular-products__item {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 0.1rem solid #ececec;
+  width: 26.5rem;
+  height: 47.5rem;
+  padding: 1rem 1rem 0;
+}
+
+.popular-products__badge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5.9rem;
+  height: 3.3rem;
+  border-radius: 1.5rem 0 2rem 0;
+  padding: 0.8rem 1.8rem;
+  background: #F74B81;
+  color: var(--badge-color);
+}
+
+.popular-products__image {
+  width: 24.6rem;
+  height: 24.6rem;
+}
+
+.popular-products__category {
+  font-family: Lato, sans-serif;
+  color: var(--category-color);
+}
+
+.popular-products__description {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.popular-products__rating {
+  margin-bottom: 1rem;
+}
+
+.popular-products__by {
+  display: inline-block;
+  font-family: Lato, sans-serif;
+  color: #B6B6B6;
+  margin-bottom: 2rem;
+}
+
+.popular-products__producer {
+  font-family: Lato, sans-serif;
+  text-decoration: none;
+}
+
+.product-producer--green {
+  color: var(--primary-color);
+}
+
+.popular-products__price {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.popular-products__previous-price {
+  font-size: 1.4rem;
+  color: var(--category-color);
+  text-decoration: line-through;
+}
+
+.popular-products__add-to-cart {
+  color: var(--primary-color);
+  background: var(--product-add-color);
+  width: 8.5rem;
+  height: 3.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-right: 2.5rem;
+  font-size: 1.5rem;
+  font-family: Lato, sans-serif;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.popular-products__add-to-cart:hover {
+  background: var(--primary-color);
+  color: white;
+}

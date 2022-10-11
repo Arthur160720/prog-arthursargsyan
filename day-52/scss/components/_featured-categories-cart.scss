@@ -1,0 +1,116 @@
+.featured-product-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 28.4rem;
+  border-radius: 1rem;
+  padding-top: 2.5rem;
+  margin: 4rem 0;
+}
+
+.featured-product__categories {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 3rem;
+}
+
+.featured-product__categories-title {
+  font-size: 3.2rem;
+  color: var(--general-color);
+  margin-right: 3rem;
+}
+
+.featured-product__categories-link {
+  text-decoration: none;
+  color: var(--general-color);
+  margin-right: 1rem;
+  padding-right: 1rem;
+  font-size: 1.6rem;
+}
+
+.featured-product__previous {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: 1rem;
+  background: var(--feature-product-button-color);
+  cursor: pointer;
+}
+
+.featured-product__previous:hover {
+  background: var(--primary-color);
+}
+
+.featured-product__previous-image {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+
+.featured-product__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--feature-product-button-color);
+  cursor: pointer;
+}
+
+.featured-product__next:hover {
+  background: var(--primary-color);
+}
+
+.featured-product__next-image {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+
+.featured-product__categories-link--green {
+  color: var(--primary-color);
+}
+
+.featured-product__carts {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20rem;
+}
+
+.featured-product__cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13.7rem;
+  height: 18rem;
+  padding: 20px 0 18px 0;
+  border-radius: 1rem;
+  background: var(--feature-product-cart-color);
+}
+
+.featured-product__cart--without-margin {
+  margin: 0;
+}
+
+.featured-product__image {
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 1rem;
+}
+
+.featured-product__category {
+  font-size: 1.6rem;
+}
+
+.featured-product__quantity {
+  font-size: 1.4rem;
+}

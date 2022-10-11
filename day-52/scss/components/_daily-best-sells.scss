@@ -1,0 +1,169 @@
+.daily-best-sells-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 63rem;
+  font-size: 1.4rem;
+  color: var(--general-color);
+  margin-top: 4rem;
+}
+
+.daily-best-sells__categories {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3.8rem;
+  margin-bottom: 4.4rem;
+}
+
+.daily-best-sells__categories-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.daily-best-sells__category {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.daily-best-sells__category--green {
+  color: var(--primary-color);
+}
+
+.daily-best-sells__products {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 54.1rem;
+}
+
+.daily-best-sells__products-advertisement {
+  width: 32rem;
+  height: 52rem;
+  background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-4.png");
+  background-size: 37.8rem 52rem;
+  border-radius: 1.5rem;
+}
+
+.daily-best-sells__advertisement-credentials {
+  display: flex;
+  flex-direction: column;
+  width: 37.8rem;
+  height: 29.5rem;
+  font-size: 1.4rem;
+  font-family: Quicksand, sans-serif;
+  padding: 0 3.5rem;
+  margin-top: 5rem;
+}
+
+.daily-best-sells__advertisement-title {
+  width: 30rem;
+  height: 9rem;
+  font-size: 3.5rem;
+  text-decoration: none;
+  color: var(--general-color);
+  font-weight: 600;
+  margin-bottom: 16rem;
+}
+
+.daily-best-sells__advertisement-show-now {
+  width: 10.3rem;
+  height: 3.1rem;
+  background: var(--primary-color);
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.daily-best-sells__advertisement-show-now:hover {
+  background: var(--add-to-cart-hover-color);
+}
+
+.daily-best-sells__advertisement-show-now-link {
+  color: white;
+  text-decoration: none;
+}
+
+.daily-best-sells__product {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid #ececec;
+  width: 26.5rem;
+  height: 52rem;
+  padding: 2.5rem 2.5rem 0;
+}
+
+.daily-best-sells__product-badge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10rem;
+  height: 3.3rem;
+  border-radius: 1.5rem 0 2rem 0;
+  padding: 0.8rem 1.5rem;
+  background: #F74B81;
+  color: var(--badge-color);
+}
+
+.daily-best-sells__product-image {
+  width: 22.6rem;
+  height: 22.6rem;
+}
+
+.daily-best-sells__product-category {
+  font-family: Lato, sans-serif;
+  color: var(--category-color);
+}
+
+.daily-best-sells__product-description {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.daily-best-sells__product-rating {
+  margin-bottom: 1rem;
+}
+
+.daily-best-sells__product-price {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.daily-best-sells__product-previous-price {
+  font-size: 1.4rem;
+  color: var(--category-color);
+  text-decoration: line-through;
+}
+
+.daily-best-sells__product-sold {
+  margin-bottom: 1.5rem;
+}
+
+.daily-best-sells__product-add-to-cart {
+  display: inline-block;
+  width: 22.6rem;
+  height: 4.7rem;
+  border-radius: 0.3rem;
+  border: none;
+  font-size: 1.5rem;
+  font-family: Lato, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  background: var(--primary-color);
+}
+
+.daily-best-sells__product-add-to-cart:hover {
+  background: var(--add-to-cart-hover-color);
+}
+
+.daily-best-sells__product-add-to-cart-link {
+  color: white;
+  text-decoration: none;
+}

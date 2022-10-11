@@ -1,0 +1,63 @@
+.advertised֊products__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 52.1rem;
+  font-size: 1.4rem;
+  color: var(--general-color);
+}
+
+.advertised֊product {
+  display: flex;
+  flex-direction: column;
+  width: 40.2rem;
+  height: 47.1rem;
+  margin-top: 4rem;
+}
+
+.advertised֊product__title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.advertised֊product__item {
+  width: 35rem;
+  height: 11.7rem;
+  margin-bottom: 3rem;
+}
+
+.advertised֊product__item-image {
+  float: left;
+  width: 11rem;
+  height: 11rem;
+  margin-right: 2.4rem;
+  border-radius: 1rem;
+}
+
+.advertised֊product__item-name {
+  display: block;
+  text-decoration: none;
+  color: var(--general-color);
+  font-size: 1.6rem;
+  margin-right: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.advertised֊product__item-rating {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.advertised֊product__item-price {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.advertised֊product__item-previous-price {
+  font-size: 1.4rem;
+  color: var(--category-color);
+  text-decoration: line-through;
+}

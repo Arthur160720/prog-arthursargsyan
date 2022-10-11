@@ -1,0 +1,61 @@
+.big-advertisement-container {
+  display: flex;
+  width: 100%;
+  height: 41.7rem;
+  margin-top: 3rem;
+  margin-bottom: 15rem;
+}
+
+.big-advertisement__background {
+  position: relative;
+  width: 100%;
+  height: 53.8rem;
+  border-radius: 2rem;
+
+  background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/slider/slider-1.png") no-repeat center;
+  background-size: 100% 100%;
+  padding: 7rem 7.8rem;
+}
+
+.big-advertisement__credentials {
+  width: 80rem;
+  height: 33.7rem;
+  top: 10rem;
+  color: var(--general-color);
+}
+
+.big-advertisement__title {
+  font-size: 7.2rem;
+  margin-bottom: 4rem;
+}
+
+.big-advertisement__shopping {
+  font-size: 3rem;
+  font-family: Lato, sans-serif;
+  color: var(--secondary-color);
+  margin-bottom: 6.5rem;
+}
+
+.big-advertisement__email-address {
+  position: relative;
+  width: 35rem;
+  height: 6.4rem;
+  border-radius: 5rem;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+.big-advertisement__subscribe {
+  position: absolute;
+  left: 35rem;
+  width: 15.9rem;
+  height: 6.4rem;
+  background: var(--primary-color);
+  border-radius: 5rem;
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  font-family: Quicksand, sans-serif;
+  cursor: pointer;
+}

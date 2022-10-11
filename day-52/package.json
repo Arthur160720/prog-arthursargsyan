@@ -1,0 +1,16 @@
+{
+  "name": "day-52",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass -w scss/main.scss css/style.css -r"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-modules": "^1.0.1",
+    "node-sass": "^7.0.3",
+    "node-scss": "^7.0.3"
+  }
+}
