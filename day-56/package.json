@@ -1,0 +1,19 @@
+{
+  "name": "day-56",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile:sass": "node-sass -w scss/main.scss css/style.css -r"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-css": "^0.1.0",
+    "node-modules": "^1.0.1",
+    "node-sass": "^7.0.3"
+  }
+}
