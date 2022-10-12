@@ -1,0 +1,74 @@
+.subscribe-advertisement-container {
+  display: flex;
+  width: 100%;
+  height: 41.7rem;
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-advertisement__background {
+  position: relative;
+  width: 100%;
+  height: 41.7rem;
+  border-radius: 2rem;
+
+  background: url("https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-10.png") no-repeat center;
+  background-size: 100% 100%;
+  padding: 8.4rem 7.8rem;
+}
+
+.subscribe-advertisement__image {
+  width: 63.4rem;
+  height: 34.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 5rem;
+}
+
+.subscribe-advertisement__credentials {
+  width: 143rem;
+  height: 24.9rem;
+  top: 10rem;
+  color: var(--general-color);
+}
+
+.subscribe-advertisement__title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.subscribe-advertisement__shopping {
+  font-size: 1.8rem;
+  font-family: Lato, sans-serif;
+  color: var(--secondary-color);
+  margin-bottom: 4.5rem;
+}
+
+.subscribe-advertisement__producer {
+  color: var(--primary-color);
+}
+
+.subscribe-advertisement__email-address {
+  position: relative;
+  width: 35rem;
+  height: 6.4rem;
+  border-radius: 5rem;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+.subscribe-advertisement__subscribe {
+  position: absolute;
+  left: 35rem;
+  width: 15.9rem;
+  height: 6.4rem;
+  background: var(--primary-color);
+  border-radius: 5rem;
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  font-family: Quicksand, sans-serif;
+  cursor: pointer;
+}
