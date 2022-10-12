@@ -2,16 +2,18 @@ let accordion = document.getElementsByClassName("menu__list-item");
 
 for (let i = 0; i < accordion.length; i++) {
 
-    accordion[i].addEventListener("click", function() {
+    accordion[i].addEventListener("click", function () {
 
-        this.classList.toggle("active");
+        this.classList.toggle("open");
 
-         let panel = this.nextElementSibling;
-
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
     });
 }
+
+let hiddenBox = document.querySelectorAll(".menu__list-item-panel");
+
+for (let i = 0; i < hiddenBox.length; i++) {
+    hiddenBox[i].addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+}
+
