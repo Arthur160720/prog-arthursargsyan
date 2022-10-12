@@ -52,6 +52,7 @@ body {
 }
 
 .header__close {
+  cursor: pointer;
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
@@ -107,18 +108,12 @@ body {
   display: none;
 }
 
-.menu__list-item-panel1 {
-   background-color: white;
-   width: 30rem;
-   display: none;
- }
-
 .menu__panel-list {
   list-style: none;
   padding-left: 1rem;
 }
 
-.menu__list-item-link {
+.menu__list-item-title {
   text-decoration: none;
   font-size: inherit;
   font-weight: inherit;

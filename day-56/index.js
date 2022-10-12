@@ -17,3 +17,15 @@ for (let i = 0; i < hiddenBox.length; i++) {
     });
 }
 
+let accordion1 = document.querySelectorAll(".menu__panel-list-invested");
+console.log(accordion1)
+
+for (let i = 0; i < accordion1.length; i++) {
+
+    accordion1[i].addEventListener("click", function () {
+
+        this.classList.toggle("open");
+        console.log(this.classList.toggle('open'))
+
+    });
+}
